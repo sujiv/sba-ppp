@@ -1,6 +1,10 @@
 .main {
   margin-left: 50px;
-  width: 90vh;
+  height: 100vh;
+  padding: 20px;
+  width: 1200px;
+  box-shadow: 0 2px 13px 0 rgba(14, 21, 45, 0.16);
+  background-color: #ffffff;
 }
 .action-btn{
   width: 94px;
@@ -28,15 +32,20 @@
   color: #5a7898;
 }
 
-.profile{
-  width: 450px;
-  height: 24px;
+.profile {
+  width: 90vW;
+  margin-left: 10px;
+}
+
+.mat-profile{
+  width: 40vW;
+  height: 12px;
   font-family: SourceSansPro-Bold;
-  font-size: 28px;
-  font-weight: 700;
-  font-stretch: normal;
-  font-style: normal;
+  font-size: 18px;
+  font-weight: bold;
   line-height: .86;
   letter-spacing: 1.02px;
   color: #0058c3;
+  margin-left: 10px;
+  float: left;
 }

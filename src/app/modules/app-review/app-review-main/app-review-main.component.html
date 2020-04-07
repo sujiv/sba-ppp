@@ -1,48 +1,51 @@
 <div class="main">
   <div class="profile">
-    <div class="headerD headerDetails">
-      <mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile><h3>Business Leagal Name: {{ appDetails.legalName }}</h3></mat-grid-tile>
-        <mat-grid-tile><h3>Primary Contact: {{ appDetails.primaryContact }}</h3></mat-grid-tile>
-        <mat-grid-tile><h3>Business Phone: {{ appDetails.businessPhone }}</h3></mat-grid-tile>
-        <mat-grid-tile>4</mat-grid-tile>
+      <mat-grid-list cols="2" rowHeight="15:1">
+<!--      <mat-grid-list cols="2">-->
+        <mat-grid-tile class="mat-profile">Business Legal Name: {{ appDetails.legalName }}</mat-grid-tile>
+        <mat-grid-tile class="mat-profile">Business TIN(EIN, SSN) {{ appDetails.TIN_EIN_SIN }}</mat-grid-tile>
+        <mat-grid-tile class="mat-profile">Primary Contact: {{ appDetails.primaryContact }}</mat-grid-tile>
+        <mat-grid-tile class="mat-profile">Account {{ appDetails.accounts }}</mat-grid-tile>
+        <mat-grid-tile class="mat-profile">Business Phone: {{ appDetails.businessPhone }}</mat-grid-tile>
+        <mat-grid-tile class="mat-profile">Email {{ appDetails.email }}</mat-grid-tile>
       </mat-grid-list>
-      <div>
   </div>
+  <br>
+  <br>
   <div class="details">
     <div class="info-header-2">
       Total expenditures for prior 12 months:
     </div>
-<!--    <mat-table [dataSource]="dataSource" matSort>-->
+    <mat-table [dataSource]="dataSource" matSort>
 
-<!--      &lt;!&ndash; ID Column &ndash;&gt;-->
-<!--      <ng-container matColumnDef="id">-->
-<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>-->
-<!--        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>-->
-<!--      </ng-container>-->
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+      </ng-container>
 
-<!--      &lt;!&ndash; Progress Column &ndash;&gt;-->
-<!--      <ng-container matColumnDef="progress">-->
-<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>-->
-<!--        <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>-->
-<!--      </ng-container>-->
+      <!-- Progress Column -->
+      <ng-container matColumnDef="progress">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+      </ng-container>
 
-<!--      &lt;!&ndash; Name Column &ndash;&gt;-->
-<!--      <ng-container matColumnDef="name">-->
-<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>-->
-<!--        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>-->
-<!--      </ng-container>-->
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+      </ng-container>
 
-<!--      &lt;!&ndash; Color Column &ndash;&gt;-->
-<!--      <ng-container matColumnDef="color">-->
-<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>-->
-<!--        <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>-->
-<!--      </ng-container>-->
+      <!-- Color Column -->
+      <ng-container matColumnDef="color">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
+      </ng-container>
 
-<!--      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
-<!--      <mat-row *matRowDef="let row; columns: displayedColumns;">-->
-<!--      </mat-row>-->
-<!--    </mat-table>-->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
   </div>
   <div class="actions">
     <button class="action-btn btn btn-primary" (click)="action('approve')"> Search</button>

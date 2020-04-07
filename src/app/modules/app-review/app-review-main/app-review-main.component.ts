@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import {MatTableDataSource} from '@angular/material/table';
 import {AppDetails} from '../../../models/AppDetails';
 import {AppReviewService} from '../../../services/app-review.service';
 import {RowItem} from '../../../models/RowItem';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-app-review-main',
@@ -12,10 +12,15 @@ import {RowItem} from '../../../models/RowItem';
 export class AppReviewMainComponent implements OnInit {
   appDetails: AppDetails;
   displayedColumns = ['', '', 'Source', 'Auto Verified', 'Comments'];
-  // dataSource: MatTableDataSource<RowItem>;
+  dataSource: MatTableDataSource<RowItem>;
 
   constructor(appReviewService: AppReviewService) {
-    appReviewService.getAppDetails(0).then( details => this.appDetails = details);
+    appReviewService.getAppDetails(0).then( details => {
+      this.appDetails = details;
+      this.dataSource = new MatTableDataSource<RowItem>();
+      this.dataSource.data.push(this.appDetails.FTE_Emp12MnthsPrior);
+      this.dataSource.data.push(this.appDetails.avgMonthlyPayrollcosts);
+    });
   }
 
   ngOnInit(): void {

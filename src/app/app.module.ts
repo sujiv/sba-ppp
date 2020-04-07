@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { AppReviewMainComponent } from './modules/app-review/app-review-main/app-review-main.component';
 import {AppReviewModule} from './modules/app-review/app-review.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatGridListModule} from "@angular/material/grid-list";
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     AppListModule,
     AppReviewModule,
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
