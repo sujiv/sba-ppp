@@ -27,3 +27,16 @@
   line-height: 1.64;
   color: #5a7898;
 }
+
+.profile{
+  width: 450px;
+  height: 24px;
+  font-family: SourceSansPro-Bold;
+  font-size: 28px;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: .86;
+  letter-spacing: 1.02px;
+  color: #0058c3;
+}
