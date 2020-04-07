@@ -1,0 +1,45 @@
+
+
+<div>
+  <h1> LOAN APPLICATION</h1>
+  <H4>  PAYROLL PROTECTION PROGRAM</H4>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <input id="bussinesLeganName" type="text"  placeholder="Bussiness Legal Name">
+        <input id="doingBussinessAsOrTradeName" type="text"  placeholder="Doing bussines As">
+      </div>
+      <div class="col-sm">
+        <input id="bussinesTIN" type="text"  placeholder="Bussiness TIN(EIN, SSN)">
+        <input id="bussinesPhone" type="text"  placeholder="Bussness Phone">
+      </div>
+
+      <div class="col-sm">
+        <input id="primaryContact" type="text"  placeholder="Primary Contact">
+        <input id="emailAddress" type="text"  placeholder="Email Address">
+      </div>
+
+      <div class="col-sm">
+
+        <select id="bussinesEntityType" #bussinesEntityType class="DENTAL-PLAN" (change)="onBussinesEntityTypeChange(bussinesEntityType.value)">
+          <option class="DENTAL-PLAN" value="" selected> Select Bussiness Entity Type</option>
+          <option class="DENTAL-PLAN" value="Sole Proprietor">Sole Proprietor</option>
+          <option class="DENTAL-PLAN" value="S Corporation">S Corporation</option>
+          <option class="DENTAL-PLAN" value="C Corporation"> C Corporation</option>
+          <option class="DENTAL-PLAN" value="Limited Liability Corporation"> Limited Liability Corporation</option>
+        </select>
+
+      </div>
+
+
+    </div>
+  </div>
+
+  <div >
+
+
+  </div>
+</div>
+
+
