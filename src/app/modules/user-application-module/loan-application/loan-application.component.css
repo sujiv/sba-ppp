@@ -1,0 +1,114 @@
+/*.contentSection{*/
+/*  margin-left: 100px;*/
+/*  margin-top: 20px;*/
+
+/*}*/
+.Title_div{
+
+margin-left: 10%;
+}
+
+
+.contentSection {
+  /*width: 959px;*/
+  /*width: 843px;*/
+  /*height: 121px;*/
+  margin-top: 10pt;
+  margin-bottom: 10pt;
+  /*height: 50px;*/
+  object-fit: contain;
+  border-radius: 4px;
+  /*box-shadow: 0 2px 13px 0 rgba(14, 21, 45, 0.16);*/
+  border: solid 1px #e6e6e6;
+  background-color: #ffffff;
+  /*margin-right: 121px;*/
+  /*margin-right: 242px;*/
+  margin-left: 40px;
+
+}
+
+
+.bussinesEntityType-Select {
+  width: 500px;
+  height: 46px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: solid 1px #e6e6e6;
+  background-color: #ffffff;
+  padding-left: 21px;
+  margin-left: 8px;
+  margin-bottom: 10px;
+}
+
+
+.bussinesEntityType{
+  width: 113px;
+  height: 20px;
+  font-family: SourceSansPro-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 1px;
+  color: #9b9b9b;
+  margin-top: 0px;
+  /*margin-bottom: 12px;*/
+  /*margin-top: 12px;*/
+  /*margin-left: 15px;*/
+  border: 0px;
+  margin-top:0px
+;
+
+}
+.fileUploadButton {
+  width: 200px;
+  height: 48px;
+  font-family: SourceSansPro-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #0058c3;
+  border: 0px;
+  /*padding-right: 10px;*/
+  margin-left: 8px;
+
+}
+
+.InputTextField {
+  width: 300px;
+  height: 35px;
+  font-family: SourceSansPro-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 1.17px;
+  color: #9b9b9b;
+  margin-left: 8px;
+  margin-bottom: 10px;
+
+
+}
+
+.TextAreas{
+  margin-top: 8px;
+  font-family: SourceSansPro-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 1.17px;
+  color: #9b9b9b;
+  margin-left: 8px;
+  margin-bottom: 10px;
+}
+
+

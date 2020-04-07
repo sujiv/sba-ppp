@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoanApplicationComponent } from './loan-application/loan-application.component';
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 
 
 
@@ -10,7 +12,10 @@ import { LoanApplicationComponent } from './loan-application/loan-application.co
     LoanApplicationComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    BrowserModule,
+    FormsModule,
   ]
 })
 export class UserApplicationModuleModule { }

@@ -1,45 +1,72 @@
 
-
-<div>
+<div class="Title_div">
   <h1> LOAN APPLICATION</h1>
-  <H4>  PAYROLL PROTECTION PROGRAM</H4>
+  <h5>  PAYROLL PROTECTION PROGRAM</h5>
+</div>
+<div >
 
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <input id="bussinesLeganName" type="text"  placeholder="Bussiness Legal Name">
-        <input id="doingBussinessAsOrTradeName" type="text"  placeholder="Doing bussines As">
+        <!--        <input class="YOUR-location" [(ngModel)]="parameter_list.location" placeholder="YOUR LOCATION" value="{{searchParams.location}}">-->
+        <!--              <mat-card class="example-result-card">-->
+
+        <input class="InputTextField" id="bussinesLeganName" type="text" placeholder="Bussiness Legal Name" [(ngModel)]="loanApplication.bussinessLegalName">
+        <input class="InputTextField" id="doingBussinessAsOrTradeName" type="text"  placeholder="Doing bussines As or Trade Name" [(ngModel)]="loanApplication.doingBussinesAsOrTradeName">
       </div>
       <div class="col-sm">
-        <input id="bussinesTIN" type="text"  placeholder="Bussiness TIN(EIN, SSN)">
-        <input id="bussinesPhone" type="text"  placeholder="Bussness Phone">
+        <input class="InputTextField" id="bussinesTIN" type="text"  placeholder="Bussiness TIN(EIN, SSN)"[(ngModel)]="loanApplication.bussinesTin">
+        <input class="InputTextField" id="bussinesPhone" type="text"  placeholder="Bussness Phone"[(ngModel)]="loanApplication.bussinesPhone">
       </div>
-
       <div class="col-sm">
-        <input id="primaryContact" type="text"  placeholder="Primary Contact">
-        <input id="emailAddress" type="text"  placeholder="Email Address">
+        <input class="InputTextField" id="primaryContact" type="text"  placeholder="Primary Contact">
+        <input  class="InputTextField" id="emailAddress" type="text"  placeholder="Email Address">
       </div>
-
       <div class="col-sm">
-
-        <select id="bussinesEntityType" #bussinesEntityType class="DENTAL-PLAN" (change)="onBussinesEntityTypeChange(bussinesEntityType.value)">
-          <option class="DENTAL-PLAN" value="" selected> Select Bussiness Entity Type</option>
-          <option class="DENTAL-PLAN" value="Sole Proprietor">Sole Proprietor</option>
-          <option class="DENTAL-PLAN" value="S Corporation">S Corporation</option>
+        <select id="bussinesEntityType" #bussinesEntityType class="bussinesEntityType-Select" (change)="onBussinesEntityTypeChange(bussinesEntityType.value)">
+          <option class="BussinesEntityType" value="" selected> Select Bussiness Entity Type</option>
+          <option class="BussinesEntityType" value="Sole Proprietor">Sole Proprietor</option>
+          <option class="BussinesEntityType" value="S Corporation">S Corporation</option>
           <option class="DENTAL-PLAN" value="C Corporation"> C Corporation</option>
-          <option class="DENTAL-PLAN" value="Limited Liability Corporation"> Limited Liability Corporation</option>
+          <option class="BussinesEntityType" value="Limited Liability Corporation"> Limited Liability Corporation</option>
         </select>
 
       </div>
+      <div class="col-sm">
+        <input class="InputTextField" id="averageMonthlyPayroll" type="text"  placeholder="Average Monthly Payroll"[(ngModel)]="loanApplication.averageMonthlyPayroll">
+        <input class="InputTextField" id="numberfojobs" type="text"  placeholder="Number of Jobs"[(ngModel)]="loanApplication.numberOfJobs">
+      </div>
+      <div class="col-sm">
 
+        <!--        =================-->
+        <div>
+          <input type="file" (change)="onFileChanged($event)">
+          <img [src]="imgURL" height="200" *ngIf="imgURL">
+        </div>
+
+        <input type="button" (click)="onUpload()" value="upload">
+
+        <!--        Received Image:-->
+        <!--        {{ receivedImageData['pic'] | json}}-->
+        <!--        <img [src]="convertedImage" >-->
+
+        <!--        ===================-->
+        <button class="fileUploadButton btn btn-primary" (click)="uploadQuerterlyIRS941()"> Upload quarterly IRS 941 </button>
+
+                <button class="fileUploadButton btn btn-primary" (click)="uplaodHealthcareCosts()"> Upload Healthcare Costs</button>
+                <button class="fileUploadButton btn btn-primary" (click)="uploadGrossPayroll()"> Upload Gross Payroll </button>
+      </div>
+
+      <!--        <label>This is where your message goes!</label>-->
+      <textArea  class="TextAreas" name="additionalInforamtion" rows="5" cols="80" placeholder="Any additional Inforamation you would like to provide"[(ngModel)]="loanApplication.additionalInforamtion">
+
+      </textArea>
+
+      <div class="col-sm">
+        <button class="fileUploadButton btn btn-primary" (click)="submitLoaapplicationForm()"> Submit </button>
+      </div>
 
     </div>
   </div>
 
-  <div >
-
-
-  </div>
 </div>
-
-
