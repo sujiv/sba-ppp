@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppReviewMainComponent } from './modules/app-review-main/app-review-main.component';
+import { AppReviewMainComponent } from './modules/app-review/app-review-main/app-review-main.component';
+import {AppReviewModule} from './modules/app-review/app-review.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AppReviewMainComponent } from './modules/app-review-main/app-review-mai
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AppListModule
+    AppListModule,
+    AppReviewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,4 +12,7 @@ export class AppReviewMainComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  action(cmd: string) {
+    console.log(cmd);
+  }
 }
