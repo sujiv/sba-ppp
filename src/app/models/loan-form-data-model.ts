@@ -1,7 +1,7 @@
 export class LoanFormDataModel {
 
-  bussinessLegalName :string;
-  doingBussinesAsOrTradeName : string;
+  bussinessLegalName: string;
+  doingBussinesAsOrTradeName: string;
   bussinesTin: string;
   bussinesPhone: string;
   primaryContact: string;
@@ -13,4 +13,5 @@ export class LoanFormDataModel {
   healthcareCosts: FormData;
   grossPayroll: FormData;
   additionalInforamtion: string;
+  attest: boolean;
 }

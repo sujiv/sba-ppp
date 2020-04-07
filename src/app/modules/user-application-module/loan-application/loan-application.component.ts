@@ -79,7 +79,12 @@ export class LoanApplicationComponent implements OnInit {
         err => console.log('Error Occured duringng saving: ' + err)
       );
 
-
   }
 
+  onAttestChanged(ch: boolean) {
+    if (ch) {
+      this.loanApplication.attest = ch;
+    } else
+      {  alert('please  con firme your input by ticking the attestion checkbox !!! '); }
+  }
 }
