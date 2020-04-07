@@ -5,3 +5,15 @@ table {
 th.mat-sort-header-sorted {
     color: black;
 }
+
+a:link,
+a:visited {
+    color: #1589ee;
+    text-decoration: none;
+    cursor: auto;
+}
+
+a:link:active,
+a:visited:active {
+    color: (internal value);
+}

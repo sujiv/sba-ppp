@@ -3,7 +3,7 @@
 
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Business Legal Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-cell *matCellDef="let element"> <a routerLink='/'>{{element.name}}</a> </td>
         </ng-container>
 
         <ng-container matColumnDef="tin">
@@ -13,7 +13,7 @@
 
         <ng-container matColumnDef="account">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Account </th>
-            <td mat-cell *matCellDef="let element"> {{element.account}} </td>
+            <td mat-cell *matCellDef="let element"> <a routerLink='/'>{{element.account}}</a> </td>
         </ng-container>
 
         <ng-container matColumnDef="irs941">
