@@ -8,16 +8,20 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppReviewMainComponent } from './modules/app-review/app-review-main/app-review-main.component';
+import {AppReviewModule} from './modules/app-review/app-review.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppReviewMainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AppListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppReviewModule
   ],
   providers: [],
   bootstrap: [AppComponent]
