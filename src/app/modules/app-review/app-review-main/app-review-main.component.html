@@ -2,45 +2,57 @@
   <div class="profile">
       <mat-grid-list cols="2" rowHeight="15:1">
 <!--      <mat-grid-list cols="2">-->
-        <mat-grid-tile class="mat-profile">Business Legal Name: {{ appDetails.legalName }}</mat-grid-tile>
-        <mat-grid-tile class="mat-profile">Business TIN(EIN, SSN) {{ appDetails.TIN_EIN_SIN }}</mat-grid-tile>
-        <mat-grid-tile class="mat-profile">Primary Contact: {{ appDetails.primaryContact }}</mat-grid-tile>
-        <mat-grid-tile class="mat-profile">Account {{ appDetails.accounts }}</mat-grid-tile>
-        <mat-grid-tile class="mat-profile">Business Phone: {{ appDetails.businessPhone }}</mat-grid-tile>
-        <mat-grid-tile class="mat-profile">Email {{ appDetails.email }}</mat-grid-tile>
+        <mat-grid-tile class="mat-profile"><h3>Business Legal Name: {{ appDetails.legalName }}</h3></mat-grid-tile>
+        <mat-grid-tile class="mat-profile"><h3>Business TIN(EIN, SSN) {{ appDetails.TIN_EIN_SIN }}</h3></mat-grid-tile>
+        <mat-grid-tile class="mat-profile"><h3>Primary Contact: {{ appDetails.primaryContact }}</h3></mat-grid-tile>
+        <mat-grid-tile class="mat-profile"><h3>Account {{ appDetails.accounts }}</h3></mat-grid-tile>
+        <mat-grid-tile class="mat-profile"><h3>Business Phone: {{ appDetails.businessPhone }}</h3></mat-grid-tile>
+        <mat-grid-tile class="mat-profile"><h3>Email {{ appDetails.email }}</h3></mat-grid-tile>
       </mat-grid-list>
   </div>
   <br>
   <br>
   <div class="details">
     <div class="info-header-2">
-      Total expenditures for prior 12 months:
+      <h2>Total expenditures for prior 12 months:</h2>
     </div>
     <mat-table [dataSource]="dataSource" matSort>
 
       <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+      <ng-container matColumnDef="fieldName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.fieldName}} </mat-cell>
       </ng-container>
 
       <!-- Progress Column -->
-      <ng-container matColumnDef="progress">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+      <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> amount </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.amount}}% </mat-cell>
       </ng-container>
 
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+      <ng-container matColumnDef="source">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Source </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.source}} </mat-cell>
       </ng-container>
 
-      <!-- Color Column -->
-      <ng-container matColumnDef="color">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
-        <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
+      <!-- Name Column -->
+      <ng-container matColumnDef="autoVerified">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Autor Verfied </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.comments}} </mat-cell>
       </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="comments">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Autor Verfied </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.comments}} </mat-cell>
+      </ng-container>
+
+<!--      &lt;!&ndash; Color Column &ndash;&gt;-->
+<!--      <ng-container matColumnDef="color">-->
+<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>-->
+<!--        <mat-cell *matCellDef="let row" [style.color]="row.comment"> {{row.color}} </mat-cell>-->
+<!--      </ng-container>-->
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;">

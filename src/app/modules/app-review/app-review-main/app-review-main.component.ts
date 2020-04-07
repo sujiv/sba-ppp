@@ -11,7 +11,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class AppReviewMainComponent implements OnInit {
   appDetails: AppDetails;
-  displayedColumns = ['', '', 'Source', 'Auto Verified', 'Comments'];
+  displayedColumns = ['fieldName', 'amount', 'source', 'autoVerified', 'comments'];
   dataSource: MatTableDataSource<RowItem>;
 
   constructor(appReviewService: AppReviewService) {
