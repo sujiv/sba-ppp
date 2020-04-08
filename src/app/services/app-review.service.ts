@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import {AppDetails} from '../models/AppDetails';
+import {HttpClient} from '@angular/common/http';
+import {JsonObject} from '@angular/compiler-cli/ngcc/src/packages/entry_point';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppReviewService {
-
-  constructor() { }
+  // host = 'http://localhost:4200';
+  constructor(private httpClient: HttpClient) {}
 
   public async getAppDetails(id: number): Promise<AppDetails> {
     console.log('searcing for application:' + id);
-    const appDetails = new AppDetails();
+    let appDetails = new AppDetails();
     appDetails.legalName = 'Jody Scott Harrison' ;
     appDetails.primaryContact = '4700 LAS VEGAS BLVD NELLIS AFB NV 89191' ;
     appDetails.businessPhone = '7026533148' ;
@@ -33,6 +35,11 @@ export class AppReviewService {
     appDetails.EDIL_ObtainedFrmJan31ToBeRefinanced = { fieldName: 'EDIL obtained from January 31, 2020 to be refinanced under program', amount: 500000, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
     appDetails.PPP_LoadAmntLesserOfCalcOr10Mil = { fieldName: 'PPP Loan amount, lesser of calculation or $10 million', amount: 2575000, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
 
+    // await this.httpClient.get<JsonObject>(this.host).subscribe(j => {
+    //   console.log(j);
+    //   appDetails = new AppDetails();
+    //   appDetails.legalName = j.legalName;
+    // })
     return appDetails;
   }
 }

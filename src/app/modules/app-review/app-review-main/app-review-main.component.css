@@ -38,9 +38,9 @@
 }
 
 .info-header-2{
-  font-family: SourceSansPro-Bold;
+  /*font-family: SourceSansPro-Bold;*/
   /*font-size: 14px;*/
-  font-weight: bold;
+  /*font-weight: bold;*/
   line-height: 1.64;
   color: #5a7898;
 }
@@ -48,11 +48,12 @@
 .profile {
   width: 94vw;
   margin-left: 5px;
-  background-color: aliceblue;
+  /*background-color: aliceblue;*/
   box-shadow: 0 2px 13px 0 rgba(14, 21, 45, 0.16);
   border-radius: 5px;
   padding-left: 10px;
   padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .mat-grid-tile .mat-figure{
@@ -91,38 +92,43 @@
   max-width: 90px;
 }
 .mat-header-cell{
-  font-size: 14px;
+  /*font-size: 14px;*/
 }
 td{
-  font-family: SourceSansPro-Regular;
-  font-size: 18px;
+  /*font-family: SourceSansPro-Regular;*/
+  /*font-size: 18px;*/
   /*font-weight: bold;*/
   /*line-height: .86;*/
   /*max-height: 10px;*/
   /*color: #0058c3;*/
-  color: #5a7898;
+  /*color: #5a7898;*/
   text-align: left;
+  padding-top: 5px;
+  padding-right: 5px;
 }
 .mat-cell {
-  font-family: SourceSansPro-Regular;
-  font-size: 18px;
+  /*font-family: SourceSansPro-Regular;*/
+  /*font-size: 18px;*/
   /*font-weight: bold;*/
   line-height: .86;
   max-height: 10px;
   /*color: #0058c3;*/
-  color: #5a7898;
+  /*color: #5a7898;*/
   text-align: right;
 }
 .mat-row{
 
 }
 .row-h2{
-  font-family: SourceSansPro-Regular !important;
-  font-size: 20px !important;
+  /*font-family: SourceSansPro-Regular !important;*/
+  /*font-size: 20px !important;*/
   font-weight: bold;
   /*background-color: antiquewhite ;*/
 }
 #mat-profile{
   min-width: 300px;
   align-items: flex-start !important;
+}
+.profile-info{
+  font-size: 14px;
 }
