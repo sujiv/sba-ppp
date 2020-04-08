@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpEventType} from '@angular/common/http';
 import {AppDetails} from '../../../models/AppDetails';
 import {LoanApplicationService} from '../../../services/loan-application.service';
+import {UserInputsDataModel} from '../../../models/user-inputs-data-model';
 
 @Component({
   selector: 'app-apply-loan',
@@ -16,15 +17,15 @@ export class ApplyLoanComponent implements OnInit {
   irs941Files: File = null;
   healthcareCostsFile: File = null;
   grossPayrollFile: File = null;
-  loanApplocationFormData: AppDetails;
+  loanApplocationFormData: UserInputsDataModel;
   constructor( private loanApplicationService: LoanApplicationService) { }
 
   ngOnInit(): void {
   }
   applyLoan() {
     // Upload the File here using Http Client
-    const fd = new FormData();
-    fd.append('irs941', this.selectedFile, this.selectedFile.name);
+    // const fd = new FormData();
+    // fd.append('irs941', this.selectedFile, this.selectedFile.name);
     // Also can send binary data this.selectedFile If the API End point accept binary data
   //  this.http.post('url', fd).subscribe(event=>{
   //    if(event.type===HttpEventType.UploadProgress) {
@@ -58,6 +59,7 @@ export class ApplyLoanComponent implements OnInit {
     // files.append('gross_payroll', this.selectedFile);
 
     // tslint:disable-next-line:max-line-length
+    // this.loanApplocationFormData.addInfo = 'is is working file';
     this.loanApplicationService.saveLoanApplicationForm(this.selectedFile, this.selectedFile, this.selectedFile, this.loanApplocationFormData)
       .subscribe(resp => {
         console.log('========data after rest ============' + resp);
@@ -74,5 +76,6 @@ export class ApplyLoanComponent implements OnInit {
     console.log(this.selectedFile.name);
 
   }
+
 
 }

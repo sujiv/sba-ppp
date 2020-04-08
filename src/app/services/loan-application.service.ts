@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {AppDetails} from '../models/AppDetails';
 import {filterFiles} from 'tslint/lib/files/resolution';
+import {UserInputsDataModel} from '../models/user-inputs-data-model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class LoanApplicationService {
   constructor( private httpClient: HttpClient) { }
 
   // tslint:disable-next-line:max-line-length
-  saveLoanApplicationForm(irS941Image: File, healthcareCostsImage: File, grossPayrollImage: File, filledLoanBasicData: AppDetails) {
+  saveLoanApplicationForm(irS941Image: File, healthcareCostsImage: File, grossPayrollImage: File, filledLoanBasicData: UserInputsDataModel) {
   // saveLoanApplicationForm( files: FormData) {
 
   //   const formData: FormData = new FormData();
@@ -40,6 +41,28 @@ export class LoanApplicationService {
     formData.append('document', irS941Image);
     formData.append('document', healthcareCostsImage);
     formData.append('document', grossPayrollImage);
+
+
+    // ====================
+
+
+      // Initialize Params Object
+      let params = new HttpParams();
+    // @ts-ignore
+    params = params.append('formData', formData);
+    // @ts-ignore
+    // filledLoanBasicData.additionalInformation = '56788';
+    // @ts-ignore
+    params = params.append('basic', filledLoanBasicData);
+
+    // ================
+
+
+
+
+
+
+
 
   //  // tslint:disable-next-line:max-line-length
    //
@@ -94,7 +117,9 @@ export class LoanApplicationService {
 // files.append('healthcare', healthcareCostsImage);
 // files.append('gross_payroll', grossPayrollImage);
 
-    return this.httpClient.post(this.hostUrl, formData);
+    // return this.httpClient.post(this.hostUrl, formData);
+
+    return this.httpClient.post(this.hostUrl, {params });
 
   }
 }
