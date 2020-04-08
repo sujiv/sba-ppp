@@ -23,8 +23,10 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     BrowserModule,
     AppRoutingModule,
     AppListModule,
-    AppReviewModule,
     BrowserAnimationsModule,
+    AppReviewModule,
+    LoanAppModule,
+    HttpClientModule
     MatGridListModule,
     MatTableModule,
     MatCheckboxModule

@@ -1,0 +1,97 @@
+<div>
+    <div [hidden]="submitted">
+        <div style="text-align: center;">
+            <h2>LOAN APPLICATION</h2>
+            <h4>PAYROLL PROTECTION PROGRAM</h4>
+        </div>
+        <div class="card">
+            <form #applyForm="ngForm" (ngSubmit)="applyLoan()">
+                <div>
+                    <mat-checkbox class="checkbox-margin" color="primary">Non Profit</mat-checkbox>
+                    <mat-checkbox class="checkbox-margin" color="primary">Vet Org</mat-checkbox>
+                    <mat-checkbox class="checkbox-margin" color="primary">Tribal</mat-checkbox>
+                    <mat-checkbox class="checkbox-margin" color="primary">Ind. Cont.</mat-checkbox>
+                    <mat-checkbox class="checkbox-margin" color="primary">Self Employed</mat-checkbox>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="input">
+                        <!-- [(ngModel)]="customer.id" -->
+                        <mat-label>Business Legal Name</mat-label>
+                        <input matInput required name="name" #name>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="input">
+                        <mat-label>Doing Business as or Trade Name is Applicable</mat-label>
+                        <input matInput required name="first_name" #first_name>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="input">
+                        <mat-label>Business TIN (EIN, SSN)</mat-label>
+                        <input matInput required name="last_name" #last_name>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="input">
+                        <mat-label>Business Phone</mat-label>
+                        <input matInput required name="email" #email>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="input">
+                        <mat-label>Primary Contact</mat-label>
+                        <input matInput required name="longitude" #longitude>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="input">
+                        <mat-label>Email Address</mat-label>
+                        <input matInput required name="latitude" #latitude>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Business Entity Type</mat-label>
+                        <mat-select required>
+                            <mat-option>Sole Proprietor</mat-option>
+                            <mat-option>S Corporation</mat-option>
+                            <mat-option>C Corporation</mat-option>
+                            <mat-option>Limited Liability Corporation </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="input">
+                        <mat-label>Average Monthly Payroll</mat-label>
+                        <input matInput required name="created_at" #created_at>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="input">
+                        <mat-label>Number of Jobs</mat-label>
+                        <input matInput required name="updated_at" #updated_at>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <input type="file" style="display: none;" (change)="onFileSelected($event)" required name="created_at" #irs941>
+                    <button mat-raised-button (click)="irs941.click()" class="file">Upload Quarterly IRS 941</button>
+                    <input type="file" style="display: none;" (change)="onFileSelected($event)" required name="created_at" #healthCareCosts>
+                    <button mat-raised-button color="primary" (click)="healthCareCosts.click()" class="file">Upload Healthcare Costs</button>
+                    <input type="file" style="display: none;" (change)="onFileSelected($event)" required name="created_at" #grossPayroll>
+                    <button mat-raised-button color="primary" (click)="grossPayroll.click()" class="file">Upload Gross Payroll</button>
+
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="textarea">
+                        <mat-label>Any additional information you would like to provide</mat-label>
+                        <textarea matInput></textarea>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-checkbox class="checkbox-margin" color="primary">I attest that all the information submitted above is accurate</mat-checkbox>
+                </div>
+                <div>
+                    <button mat-raised-button class="submit" type="submit">Submit Loan Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div [hidden]="!submitted">
+        <!-- {{customer.first_name}} -->
+        <h4>Customer Added Successfully!</h4>
+        <a mat-raised-button color="warn" routerLink="/">Back</a>
+    </div>
+</div>

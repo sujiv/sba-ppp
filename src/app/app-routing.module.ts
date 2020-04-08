@@ -1,3 +1,4 @@
+import { ApplyLoanComponent } from './modules/loan-app/apply-loan/apply-loan.component';
 import { CommonModule } from '@angular/common';
 
 import { AppListMainComponent } from './modules/app-list/app-list-main/app-list-main.component';
@@ -8,7 +9,8 @@ import {AppReviewMainComponent} from './modules/app-review/app-review-main/app-r
 
 const routes: Routes = [
   { path: 'review', component: AppReviewMainComponent},
-  { path: 'list', component: AppListMainComponent}
+  { path: 'list', component: AppListMainComponent},
+  { path: 'apply', component: ApplyLoanComponent},
 
 ];
 

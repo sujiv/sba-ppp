@@ -1,0 +1,28 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.checkbox-margin {
+    margin: 0 10px;
+}
+
+.file {
+    background-color: #3898EC;
+    color: white;
+    margin-right: 15px;
+}
+
+.submit {
+    background-color: #cf404d;
+    color: white;
+}
+
+.input {
+    margin-right: 20px;
+}
+
+.textarea {
+    margin-top: 20px;
+}
