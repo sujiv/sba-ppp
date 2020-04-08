@@ -1,0 +1,73 @@
+<div>
+    <div>
+        <div style="text-align: center;">
+            <h2 class="title">ELIGIBILITY</h2>
+            <h4 class="sub-title">PAYROLL PROTECTION PROGRAM</h4>
+        </div>
+        <div class="card">
+            <form #applyForm="ngForm" (ngSubmit)="applyEligibility()">
+                <div style="margin-top: 20px;">
+                    <div>
+                        <div style="width: 400px; display: inline-block">
+                            Is the Business or any owner presently suspended, debarred, proposed for debarment, declared ineligible, voluntarily excludedfrom participation in this transaction by any Federal department or agency, or presently involved in any bankruptcy?
+                        </div>
+                        <div class="checkbox-container">
+                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <div style="width: 400px; display: inline-block">
+                            Has the Business, any of its owners, or any business owned or controlled by any of them, ever obtained a direct or guaranteedloan from SBA or any other Federal agency that is currently delinquent or has defaulted in the last 7 years and caused a loss
+                            tothe government?
+                        </div>
+                        <div class="checkbox-container">
+                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <div style="width: 400px; display: inline-block">
+                            Is the Business or any owner an owner of any other business or have common management with any other business? If yes,attach a listing of all Affiliates and describe the relationship as addendum A
+                        </div>
+                        <div class="checkbox-container">
+                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <div style="width: 400px; display: inline-block">
+                            Has the Business received an SBA Economic Injury Disaster Loan between January 31, 2020 and April 3, 2020? If yes,provide details on a separate sheet identified as addendum B
+                        </div>
+                        <div class="checkbox-container">
+                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <div style="width: 400px; display: inline-block">
+                            Are you presently subject to an indictment, criminal information, arraignment, or other means bywhich formal criminal charges are brought in any jurisdiction, or presently incarcerated, on probationor parole?
+                        </div>
+                        <div class="checkbox-container">
+                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <div style="width: 400px; display: inline-block">
+                            Within the last 7 years, for any felony or misdemeanor for a crime against a minor, have you: 1) beenconvicted; 2) pleaded guilty; 3) pleaded nolo contendere; 4) been placed on pretrial diversion; or 5) beenplaced on any form of parole or probation (including
+                            probation before judgment)?
+                        </div>
+                        <div class="checkbox-container">
+                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button mat-raised-button class="submit" type="submit" routerLink="/apply">Continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

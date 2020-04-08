@@ -44,3 +44,9 @@
     margin-top: 20px;
     width: 400px;
 }
+
+.upload {
+    display: inline-block;
+    width: 200px;
+    margin-top: 10px;
+}

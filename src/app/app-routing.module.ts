@@ -1,3 +1,5 @@
+import { CertificationsComponent } from './modules/loan-app/certifications/certifications.component';
+import { EligibilityComponent } from './modules/loan-app/eligibility/eligibility.component';
 import { ApplyLoanComponent } from './modules/loan-app/apply-loan/apply-loan.component';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +13,8 @@ const routes: Routes = [
   { path: 'review', component: AppReviewMainComponent},
   { path: 'list', component: AppListMainComponent},
   { path: 'apply', component: ApplyLoanComponent},
+  { path: 'eligibility', component: EligibilityComponent},
+  { path: 'certification', component: CertificationsComponent}
 
 ];
 

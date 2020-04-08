@@ -66,13 +66,20 @@
                     </mat-form-field>
                 </div>
                 <div>
-                    <input type="file" style="display: none;" (change)="onFileSelected($event)" required name="created_at" #irs941>
+                    <input type="file" hidden (change)="onFileSelectedI($event)" required name="created_at" #irs941>
                     <button mat-raised-button (click)="irs941.click()" class="file">Upload Quarterly IRS 941</button>
-                    <input type="file" style="display: none;" (change)="onFileSelected($event)" required name="created_at" #healthCareCosts>
+                    <input type="file" style="display: none;" (change)="onFileSelectedII($event)" required name="created_at" #healthCareCosts>
                     <button mat-raised-button color="primary" (click)="healthCareCosts.click()" class="file">Upload Healthcare Costs</button>
-                    <input type="file" style="display: none;" (change)="onFileSelected($event)" required name="created_at" #grossPayroll>
+                    <input type="file" style="display: none;" (change)="onFileSelectedIII($event)" required name="created_at" #grossPayroll>
                     <button mat-raised-button color="primary" (click)="grossPayroll.click()" class="file">Upload Gross Payroll</button>
 
+                </div>
+                <div>
+                    <div cols="3" rowHeight="2:1">
+                        <div *ngIf="irs941Upload" class="upload">{{irs941Upload}}</div>
+                        <div *ngIf="healthCareUpload" class="upload">{{healthCareUpload}}</div>
+                        <div *ngIf="grossPayrollUpload" class="upload">{{grossPayrollUpload}}</div>
+                    </div>
                 </div>
                 <div>
                     <mat-form-field appearance="outline" class="textarea">
@@ -84,14 +91,9 @@
                     <mat-checkbox class="checkbox-margin" color="primary">I attest that all the information submitted above is accurate</mat-checkbox>
                 </div>
                 <div>
-                    <button mat-raised-button class="submit" type="submit">Submit Loan Application</button>
+                    <button mat-raised-button class="submit" type="submit" routerLink="/certification">Continue</button>
                 </div>
             </form>
         </div>
-    </div>
-    <div *ngIf="submitted">
-        <!-- {{customer.first_name}} -->
-        <h4>Appliction Submitted Successfully!</h4>
-        <a mat-raised-button color="warn" routerLink="/">Back</a>
     </div>
 </div>
