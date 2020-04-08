@@ -1,19 +1,19 @@
 <div>
-    <div [hidden]="submitted">
+    <div>
         <div style="text-align: center;">
-            <h2>LOAN APPLICATION</h2>
-            <h4>PAYROLL PROTECTION PROGRAM</h4>
+            <h2 class="title">LOAN APPLICATION</h2>
+            <h4 class="sub-title">PAYROLL PROTECTION PROGRAM</h4>
         </div>
         <div class="card">
             <form #applyForm="ngForm" (ngSubmit)="applyLoan()">
-                <div>
+                <div style="margin-top: 50px;">
                     <mat-checkbox class="checkbox-margin" color="primary">Non Profit</mat-checkbox>
                     <mat-checkbox class="checkbox-margin" color="primary">Vet Org</mat-checkbox>
                     <mat-checkbox class="checkbox-margin" color="primary">Tribal</mat-checkbox>
                     <mat-checkbox class="checkbox-margin" color="primary">Ind. Cont.</mat-checkbox>
                     <mat-checkbox class="checkbox-margin" color="primary">Self Employed</mat-checkbox>
                 </div>
-                <div>
+                <div style="margin-top: 10px;">
                     <mat-form-field appearance="outline" class="input">
                         <!-- [(ngModel)]="customer.id" -->
                         <mat-label>Business Legal Name</mat-label>
@@ -45,7 +45,7 @@
                     </mat-form-field>
                 </div>
                 <div>
-                    <mat-form-field appearance="outline">
+                    <mat-form-field appearance="outline" class="select">
                         <mat-label>Select Business Entity Type</mat-label>
                         <mat-select required>
                             <mat-option>Sole Proprietor</mat-option>
@@ -89,9 +89,9 @@
             </form>
         </div>
     </div>
-    <div [hidden]="!submitted">
+    <div *ngIf="submitted">
         <!-- {{customer.first_name}} -->
-        <h4>Customer Added Successfully!</h4>
+        <h4>Appliction Submitted Successfully!</h4>
         <a mat-raised-button color="warn" routerLink="/">Back</a>
     </div>
 </div>
