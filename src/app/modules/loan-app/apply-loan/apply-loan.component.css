@@ -1,3 +1,13 @@
+.title {
+    font-size: 36px;
+    margin-top: 30px;
+}
+
+.sub-title {
+    font-size: 19px;
+    color: #3898EC;
+}
+
 .card {
     display: flex;
     align-items: center;
@@ -5,7 +15,7 @@
 }
 
 .checkbox-margin {
-    margin: 0 10px;
+    margin-right: 10px;
 }
 
 .file {
@@ -14,15 +24,23 @@
     margin-right: 15px;
 }
 
+.select {
+    width: 400px;
+}
+
 .submit {
     background-color: #cf404d;
     color: white;
+    margin-top: 20px;
+    width: 400px;
 }
 
 .input {
     margin-right: 20px;
+    width: 300px;
 }
 
 .textarea {
     margin-top: 20px;
+    width: 400px;
 }
