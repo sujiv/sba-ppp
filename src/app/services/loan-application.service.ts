@@ -45,17 +45,17 @@ export class LoanApplicationService {
 
     // ====================
 
-
-      // Initialize Params Object
-      let params = new HttpParams();
-    // @ts-ignore
-    params = params.append('formData', formData);
-    // @ts-ignore
-    // filledLoanBasicData.additionalInformation = '56788';
-    // @ts-ignore
-    params = params.append('basic', filledLoanBasicData);
-
-    // ================
+    //
+    //   // Initialize Params Object
+    //   let params = new HttpParams();
+    // // @ts-ignore
+    // params = params.append('formData', formData);
+    // // @ts-ignore
+    // // filledLoanBasicData.additionalInformation = '56788';
+    // // @ts-ignore
+    // params = params.append('basic', filledLoanBasicData);
+    //
+    // // ================
 
 
 
@@ -119,7 +119,8 @@ export class LoanApplicationService {
 
     // return this.httpClient.post(this.hostUrl, formData);
 
-    return this.httpClient.post(this.hostUrl, {params });
+
+    return this.httpClient.post(this.hostUrl, formData);
 
   }
 }
