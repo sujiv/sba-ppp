@@ -1,21 +1,80 @@
-<!-- <div class="main">
+<div class="main">
   <div class="profile">
-    <div class="headerD headerDetails">
-      <h3 class="dentistName">{{fullName}}</h3>
-      <h4 class="specialization">{{ specialty }}</h4>
-      <p>
-      </p>
-      <div>
+    <table>
+      <tr>
+        <td width="20%"><div class="profile-info">Business Legal Name</div></td><td width="40%"><div class="profile-info">: {{ appDetails.legalName }}</div></td>
+        <td width="20%"><div class="profile-info">Business TIN(EIN, SSN)</div></td><td width="20%"><div class="profile-info">: {{ appDetails.TIN_EIN_SIN }}</div></td>
+      </tr>
+      <tr>
+        <td><div class="profile-info">Primary Contact</div></td><td><div class="profile-info">: {{ appDetails.primaryContact }}</div></td>
+        <td><div class="profile-info">Account(s)</div></td><td><div class="profile-info">: {{ appDetails.accounts }}</div></td>
+      </tr>
+      <tr>
+        <td><div class="profile-info">Business Phone</div></td><td><div class="profile-info">: {{ appDetails.businessPhone }}</div></td>
+        <td><div class="profile-info">Email</div></td><td><div class="profile-info">: {{ appDetails.email }}</div></td>
+      </tr>
+    </table>
   </div>
+  <br>
+  <br>
   <div class="details">
-    <div class="info-header-2">
-      Total expenditures for prior 12 months:
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Field Column -->
+      <ng-container matColumnDef="fields">
+        <mat-header-cell *matHeaderCellDef mat-sort-header > </mat-header-cell>
+        <mat-cell *matCellDef="let row" [ngClass]="{'row-h2':row.amount===null}"> {{row.fieldName}}</mat-cell>
+      </ng-container>
+
+      <!-- Amount Column -->
+      <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+        <mat-cell *matCellDef="let row" ><div *ngIf="row.amount!==null" class="mat-cell" style="width: 100px"> ${{row.amount}} </div></mat-cell>
+      </ng-container>
+
+      <!-- Source Column -->
+      <ng-container matColumnDef="source">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Source </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.source}} </mat-cell>
+      </ng-container>
+
+      <!-- Auto Verified Column -->
+      <ng-container matColumnDef="autoVerified">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Auto Verfied </mat-header-cell>
+<!--        <input *ngIf="row.autoVerified === 'Y'" checked type="checkbox" enabled = false>-->
+        <mat-cell *matCellDef="let row"><div *ngIf="(row.autoVerified ==='Y')" class="verified"> &#10004; </div></mat-cell>
+<!--        <mat-cell *matCellDef="let row">{{row.autoVerified}}</mat-cell>-->
+      </ng-container>
+
+      <!-- Comments Column -->
+      <ng-container matColumnDef="comments">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Comments</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.comments}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+  </div>
+  <br>
+    <div>
     </div>
+<!--  </mat-form-field>-->
+<!--  <div class="comment">-->
+<!--    <label for="comment">Comments:</label><br>-->
+<!--    <textarea  id="comment" rows="5" cols="100"></textarea>-->
+<!--  </div>-->
+  <div class="md-form">
+    <label for="form7">Comments:</label>
+    <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
   </div>
   <div class="actions">
-    <button class="action-btn btn btn-primary" (click)="action('approve')"> Search</button>
-    <button class="action-btn btn btn-primary" (click)="action('addInfo')"> Search</button>
-    <button class="action-btn btn btn-primary" (click)="action('deny')"> Search</button>
-    <button class="action-btn btn btn-primary" (click)="action('comment')"> Search</button>
+    <button mat-raised-button class="action-btn" *ngFor="let act of actionList" (click)="action(act)" type="submit"> {{act}}</button>
   </div>
-</div> -->
+  <br>
+  <div *ngIf="submitted">
+    <h4>Appliction Reviewed Successfully!</h4>
+    <a mat-raised-button color="warn" routerLink="/">Back</a>
+  </div>
+</div>

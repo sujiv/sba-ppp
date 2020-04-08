@@ -25,7 +25,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/fonts/fonts-sourceSansPro.css"
             ],
             "scripts": []
           },
@@ -123,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "sba-ppp"
+  "defaultProject": "sba-ppp",
+  "cli": {
+    "analytics": "4640fce8-cff8-482f-abc6-d6de5c3e0adc"
+  }
 }
