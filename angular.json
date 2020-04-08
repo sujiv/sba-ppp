@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "sba-ppp"
+  "defaultProject": "sba-ppp",
+  "cli": {
+    "analytics": "4640fce8-cff8-482f-abc6-d6de5c3e0adc"
+  }
 }

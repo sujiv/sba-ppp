@@ -25,4 +25,12 @@ export class AppDetails {
   public EDIL_ObtainedFrmJan31ToBeRefinanced: RowItem;
   // tslint:disable-next-line:variable-name
   public PPP_LoadAmntLesserOfCalcOr10Mil: RowItem;
+
+
+  // =======new feilds =======
+  additionalInformation: string;
+  numberOfJobs: number;
+  bussinessTradeName: string;
+  attest: boolean;
+
 }
