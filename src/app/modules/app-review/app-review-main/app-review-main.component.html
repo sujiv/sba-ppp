@@ -59,10 +59,8 @@
       </mat-row>
     </mat-table>
   </div>
+  <br>
   <div class="actions">
-    <button class="action-btn btn btn-primary" (click)="action('approve')"> Search</button>
-    <button class="action-btn btn btn-primary" (click)="action('addInfo')"> Search</button>
-    <button class="action-btn btn btn-primary" (click)="action('deny')"> Search</button>
-    <button class="action-btn btn btn-primary" (click)="action('comment')"> Search</button>
+    <button class="action-btn btn btn-primary" *ngFor="let act of actionList" (click)="action(act)"> {{act}}</button>
   </div>
 </div>

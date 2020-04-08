@@ -13,6 +13,7 @@ export class AppReviewMainComponent implements OnInit {
   appDetails: AppDetails;
   displayedColumns = ['fieldName', 'amount', 'source', 'autoVerified', 'comments'];
   dataSource: MatTableDataSource<RowItem>;
+  actionList: string[] = ['Approve', 'AddInfo', 'Deny', 'Comment'];
 
   constructor(appReviewService: AppReviewService) {
     appReviewService.getAppDetails(0).then( details => {
