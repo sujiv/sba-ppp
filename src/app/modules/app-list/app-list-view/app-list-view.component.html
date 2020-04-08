@@ -1,0 +1,49 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Business Legal Name </th>
+            <td mat-cell *matCellDef="let element"> <a routerLink='/'>{{element.name}}</a> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tin">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Business TIN </th>
+            <td mat-cell *matCellDef="let element"> {{element.tin}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="account">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Account </th>
+            <td mat-cell *matCellDef="let element"> <a routerLink='/'>{{element.account}}</a> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="irs941">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> IRS 941 </th>
+            <td mat-cell *matCellDef="let element"> {{element.irs941}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="payrollCostReport">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Payroll Cost Report </th>
+            <td mat-cell *matCellDef="let element"> {{element.payrollCostReport}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="payrollHeadcountReport">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Payroll Headcount Report </th>
+            <td mat-cell *matCellDef="let element"> {{element.payrollHeadcountReport}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="healthcareCostReport">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Healthcare Cost Report </th>
+            <td mat-cell *matCellDef="let element"> {{element.healthcareCostReport}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
