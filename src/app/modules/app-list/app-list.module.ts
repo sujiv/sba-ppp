@@ -2,7 +2,7 @@ import { AppRoutingModule } from './../../app-routing.module';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MaterialTable} from '../app-list/models/material-table'
+import {MaterialTable} from '../../models/material-table';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 
 import { AppListMainComponent } from './app-list-main/app-list-main.component';

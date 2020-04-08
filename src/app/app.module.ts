@@ -1,3 +1,4 @@
+import { LoanAppModule } from './modules/loan-app/loan-app.module';
 import { AppListModule } from './modules/app-list/app-list.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -21,7 +22,9 @@ import {AppReviewModule} from './modules/app-review/app-review.module';
     AppRoutingModule,
     AppListModule,
     BrowserAnimationsModule,
-    AppReviewModule
+    AppReviewModule,
+    LoanAppModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
