@@ -1,0 +1,32 @@
+.title {
+    font-size: 36px;
+    margin-top: 30px;
+}
+
+.sub-title {
+    font-size: 19px;
+    color: #3898EC;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-margin {
+    margin-right: 20px;
+}
+
+.submit {
+    background-color: #cf404d;
+    color: white;
+    margin-top: 30px;
+    width: 400px;
+}
+
+.checkbox-container {
+    display: inline-block;
+    float: right;
+    margin-left: 30px;
+}

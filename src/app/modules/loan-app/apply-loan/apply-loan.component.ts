@@ -13,11 +13,11 @@ export class ApplyLoanComponent implements OnInit {
   // customer:Customer = new Customer();
   submitted = false;
   selectedFile: File = null;
-  irs941Files: File = null;
-  healthcareCostsFile: File = null;
-  grossPayrollFile: File = null;
-  loanApplocationFormData: AppDetails;
-  constructor( private loanApplicationService: LoanApplicationService) { }
+  irs941Upload = null;
+  healthCareUpload = null;
+  grossPayrollUpload = null;
+
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -39,16 +39,30 @@ export class ApplyLoanComponent implements OnInit {
     // const  healthCost= new FormData();
     // healthCost.append()
     // const  gParoll= new FormData();
-      this.loanApplicationService.saveLoanApplicationForm(this.selectedFile, this.selectedFile, this.selectedFile, this.loanApplocationFormData)
-      .subscribe(resp => {
-      console.log(resp); }
-      );
+      // this.loanApplicationService.saveLoanApplicationForm(this.selectedFile, this.selectedFile, this.selectedFile, this.loanApplocationFormData)
+      // .subscribe(resp => {
+      // console.log(resp); }
+      // );
   }
-  onFileSelected(event) {
+  onFileSelectedI(event) {
     console.log(event);
-    this.selectedFile = event.target.files[0] as File;
+    this.selectedFile = <File>event.target.files[0];
+    this.irs941Upload=this.selectedFile.name;
+    console.log(this.selectedFile.name)
 
-    console.log(this.selectedFile.name);
+  }
+  onFileSelectedII(event) {
+    console.log(event);
+    this.selectedFile = <File>event.target.files[0];
+    this.healthCareUpload=this.selectedFile.name;
+    console.log(this.selectedFile.name)
+
+  }
+  onFileSelectedIII(event) {
+    console.log(event);
+    this.selectedFile = <File>event.target.files[0];
+    this.grossPayrollUpload=this.selectedFile.name;
+    console.log(this.selectedFile.name)
 
   }
 
