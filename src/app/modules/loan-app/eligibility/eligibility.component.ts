@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInputsDataModel } from 'src/app/models/UserInputsDataModel ';
 
 @Component({
   selector: 'app-eligibility',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./eligibility.component.css']
 })
 export class EligibilityComponent implements OnInit {
+
+  userInputsDataModel:UserInputsDataModel;
 
   constructor() { }
 

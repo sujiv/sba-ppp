@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInputsDataModel } from 'src/app/models/UserInputsDataModel ';
 
 @Component({
   selector: 'app-certifications',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./certifications.component.css']
 })
 export class CertificationsComponent implements OnInit {
+
+  userInputsDataModel:UserInputsDataModel;
 
   constructor() { }
 

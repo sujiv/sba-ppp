@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpEventType} from '@angular/common/http';
 import {AppDetails} from '../../../models/AppDetails';
 import {LoanApplicationService} from '../../../services/loan-application.service';
+import { UserInputsDataModel } from 'src/app/models/UserInputsDataModel ';
 
 @Component({
   selector: 'app-apply-loan',
@@ -16,6 +17,8 @@ export class ApplyLoanComponent implements OnInit {
   irs941Upload = null;
   healthCareUpload = null;
   grossPayrollUpload = null;
+
+  userInputsDataModel:UserInputsDataModel;
 
   constructor() { }
 
