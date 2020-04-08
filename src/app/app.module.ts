@@ -11,8 +11,10 @@ import { AppReviewMainComponent } from './modules/app-review/app-review-main/app
 import {AppReviewModule} from './modules/app-review/app-review.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatTableModule} from "@angular/material/table";
-import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {LoanAppModule} from './modules/loan-app/loan-app.module';
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -26,10 +28,12 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     BrowserAnimationsModule,
     AppReviewModule,
     LoanAppModule,
-    HttpClientModule
+    HttpClientModule,
     MatGridListModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

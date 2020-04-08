@@ -54,7 +54,7 @@
       <ng-container matColumnDef="autoVerified">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Auto Verfied </mat-header-cell>
 <!--        <input *ngIf="row.autoVerified === 'Y'" checked type="checkbox" enabled = false>-->
-        <mat-cell *matCellDef="let row"><mat-checkbox *ngIf="row.autoVerified==='Y'" checked="true"></mat-checkbox></mat-cell>
+        <mat-cell *matCellDef="let row"><div *ngIf="(row.autoVerified ==='Y')" class="verified"> &#10004; </div></mat-cell>
 <!--        <mat-cell *matCellDef="let row">{{row.autoVerified}}</mat-cell>-->
       </ng-container>
 
@@ -70,12 +70,30 @@
     </mat-table>
   </div>
   <br>
-  <div class="comment">
-    <label for="comment">Comments:</label><br>
-    <textarea id="comment" rows="5" cols="100"></textarea>
-  </div>
+<!--  <mat-form-field appearance="outline" class="textarea">-->
+  <form #applyForm="ngForm">
+    <div>
+      <mat-form-field appearance="outline" class="textarea">
+        <mat-label>Any additional information you would like to provide</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-checkbox class="checkbox-margin" color="primary">I attest that all the information submitted above is accurate</mat-checkbox>
+    </div>
+    <div>
+      <button mat-raised-button class="submit" type="submit">Submit Loan Application</button>
+    </div>
+    <mat-label>Comments</mat-label>
+    <textarea matInput></textarea>
+<!--  </mat-form-field>-->
+<!--  <div class="comment">-->
+<!--    <label for="comment">Comments:</label><br>-->
+<!--    <textarea  id="comment" rows="5" cols="100"></textarea>-->
+<!--  </div>-->
   <div class="actions">
-    <button class="action-btn btn btn-primary" *ngFor="let act of actionList" (click)="action(act)"> {{act}}</button>
+    <button mat-raised-button class="action-btn" *ngFor="let act of actionList" (click)="action(act)" type="submit"> {{act}}</button>
   </div>
+  </form>
   <br>
 </div>

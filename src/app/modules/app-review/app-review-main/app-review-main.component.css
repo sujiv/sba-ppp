@@ -7,26 +7,37 @@
   background-color: #ffffff;
 }
 .action-btn{
-  width: 94px;
-  height: 48px;
-  font-family: SourceSansPro-Regular;
-  font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.71;
-  letter-spacing: 1px;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
   text-align: center;
-  color: #ffffff;
-  background-color: #0058c3;
-  border: 0px;
-  border-radius: 10px;
-  margin-right: 10px;
+  margin: 0;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 4px;
+  overflow: visible;
+  transform: translate3d(0, 0, 0);
+  transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #1589ee;
+  /*background-color: #cf404d;*/
+  color: white;
 }
 
 .info-header-2{
   font-family: SourceSansPro-Bold;
-  font-size: 18px;
+  /*font-size: 14px;*/
   font-weight: bold;
   line-height: 1.64;
   color: #5a7898;

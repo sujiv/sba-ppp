@@ -9,6 +9,7 @@ export class AppReviewService {
   constructor() { }
 
   public async getAppDetails(id: number): Promise<AppDetails> {
+    console.log('searcing for application:' + id);
     const appDetails = new AppDetails();
     appDetails.legalName = 'Jody Scott Harrison' ;
     appDetails.primaryContact = '4700 LAS VEGAS BLVD NELLIS AFB NV 89191' ;
