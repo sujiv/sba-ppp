@@ -12,6 +12,7 @@ import {AppReviewModule} from './modules/app-review/app-review.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from "@angular/material/table";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MatTableModule} from "@angular/material/table";
     AppReviewModule,
     BrowserAnimationsModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

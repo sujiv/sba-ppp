@@ -11,7 +11,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class AppReviewMainComponent implements OnInit {
   appDetails: AppDetails;
-  displayedColumns = ['fieldName', 'amount', 'source', 'autoVerified', 'comments'];
+  displayedColumns = ['fields', 'amount', 'source', 'autoVerified', 'comments'];
   dataSource: MatTableDataSource<RowItem>;
   actionList: string[] = ['Approve', 'AddInfo', 'Deny', 'Comment'];
 
@@ -20,7 +20,24 @@ export class AppReviewMainComponent implements OnInit {
       this.appDetails = details;
       this.dataSource = new MatTableDataSource<RowItem>();
       this.dataSource.data.push(this.appDetails.FTE_Emp12MnthsPrior);
+      this.dataSource.data.push({
+        fieldName: `Total expenditures for prior 12 months:`, amount: null, source: '', autoVerified: '', comments: ''
+      });
+      this.dataSource.data.push(this.appDetails.empWages);
+      this.dataSource.data.push(this.appDetails.lessOwnerWagesExcess100K);
+      this.dataSource.data.push(this.appDetails.lessQualifiedSickLeaveWagesUnderFFCRA);
+      this.dataSource.data.push(this.appDetails.lessQualifiedFamilyLeaveWagesUnderFFCRA);
+      this.dataSource.data.push(this.appDetails.groupHealthCareBenefitsInsPremium);
+      this.dataSource.data.push(this.appDetails.paymentRetirementBen);
+      this.dataSource.data.push(this.appDetails.paymentEmployerPayrollTaxesStateLocal);
+      this.dataSource.data.push(this.appDetails.contractLabor);
+      this.dataSource.data.push(this.appDetails.lessIndividualContractLaborExcess100K);
+      this.dataSource.data.push(this.appDetails.prior12MnthsCumQualifyingPayrollCost);
       this.dataSource.data.push(this.appDetails.avgMonthlyPayrollcosts);
+      this.dataSource.data.push(this.appDetails.multiplier2dot5);
+      this.dataSource.data.push(this.appDetails.EDIL_ObtainedFrmJan31ToBeRefinanced);
+      this.dataSource.data.push(this.appDetails.PPP_LoadAmntLesserOfCalcOr10Mil);
+
     });
   }
 

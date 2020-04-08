@@ -1,58 +1,68 @@
-<!-- <div class="main">
+<div class="main">
   <div class="profile">
-      <mat-grid-list cols="2" rowHeight="15:1">
-<!--      <mat-grid-list cols="2">-->
-        <mat-grid-tile class="mat-profile"><h3>Business Legal Name: {{ appDetails.legalName }}</h3></mat-grid-tile>
-        <mat-grid-tile class="mat-profile"><h3>Business TIN(EIN, SSN) {{ appDetails.TIN_EIN_SIN }}</h3></mat-grid-tile>
-        <mat-grid-tile class="mat-profile"><h3>Primary Contact: {{ appDetails.primaryContact }}</h3></mat-grid-tile>
-        <mat-grid-tile class="mat-profile"><h3>Account {{ appDetails.accounts }}</h3></mat-grid-tile>
-        <mat-grid-tile class="mat-profile"><h3>Business Phone: {{ appDetails.businessPhone }}</h3></mat-grid-tile>
-        <mat-grid-tile class="mat-profile"><h3>Email {{ appDetails.email }}</h3></mat-grid-tile>
-      </mat-grid-list>
+    <table>
+      <tr>
+        <td width="20%"><h2>Business Legal Name</h2></td><td width="40%"><h2>: {{ appDetails.legalName }}</h2></td>
+        <td width="20%"><h2>Business TIN(EIN, SSN)</h2></td><td width="20%"><h2>: {{ appDetails.TIN_EIN_SIN }}</h2></td>
+      </tr>
+      <tr>
+        <td><h2>Primary Contact</h2></td><td><h2>: {{ appDetails.primaryContact }}</h2></td>
+        <td><h2>Account(s)</h2></td><td><h2>: {{ appDetails.accounts }}</h2></td>
+      </tr>
+      <tr>
+        <td><h2>Business Phone</h2></td><td><h2>: {{ appDetails.businessPhone }}</h2></td>
+        <td><h2>Email</h2></td><td><h2>: {{ appDetails.email }}</h2></td>
+      </tr>
+    </table>
+<!--      <mat-grid-list cols="2" rowHeight="15:1">-->
+<!--&lt;!&ndash;      <mat-grid-list cols="2">&ndash;&gt;-->
+<!--        <mat-grid-tile class="mat-profile"><h2>Business Legal Name: {{ appDetails.legalName }}</h2></mat-grid-tile>-->
+<!--        <mat-grid-tile class="mat-profile"><h2>Business TIN(EIN, SSN): {{ appDetails.TIN_EIN_SIN }}</h2></mat-grid-tile>-->
+<!--        <mat-grid-tile class="mat-profile"><h2>Primary Contact: {{ appDetails.primaryContact }}</h2></mat-grid-tile>-->
+<!--        <mat-grid-tile class="mat-profile"><h2>Account(s): {{ appDetails.accounts }}</h2></mat-grid-tile>-->
+<!--        <mat-grid-tile class="mat-profile"><h2>Business Phone: {{ appDetails.businessPhone }}</h2></mat-grid-tile>-->
+<!--        <mat-grid-tile class="mat-profile"><h2>Email: {{ appDetails.email }}</h2></mat-grid-tile>-->
+<!--      </mat-grid-list>-->
   </div>
   <br>
   <br>
   <div class="details">
-    <div class="info-header-2">
-      <h2>Total expenditures for prior 12 months:</h2>
-    </div>
+<!--    <div class="info-header-2">-->
+<!--      <h2>Total expenditures for prior 12 months:</h2>-->
+<!--    </div>-->
     <mat-table [dataSource]="dataSource" matSort>
 
-      <!-- ID Column -->
-      <ng-container matColumnDef="fieldName">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.fieldName}} </mat-cell>
+      <!-- Field Column -->
+      <ng-container matColumnDef="fields">
+        <mat-header-cell *matHeaderCellDef mat-sort-header > </mat-header-cell>
+        <mat-cell *matCellDef="let row" [ngClass]="{'row-h2':row.amount===null}"> {{row.fieldName}}</mat-cell>
       </ng-container>
 
-      <!-- Progress Column -->
+      <!-- Amount Column -->
       <ng-container matColumnDef="amount">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> amount </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.amount}}% </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+        <mat-cell *matCellDef="let row" ><div *ngIf="row.amount!==null"> ${{row.amount}} </div></mat-cell>
       </ng-container>
 
-      <!-- Name Column -->
+      <!-- Source Column -->
       <ng-container matColumnDef="source">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Source </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.source}} </mat-cell>
       </ng-container>
 
-      <!-- Name Column -->
+      <!-- Auto Verified Column -->
       <ng-container matColumnDef="autoVerified">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Autor Verfied </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.comments}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Auto Verfied </mat-header-cell>
+<!--        <input *ngIf="row.autoVerified === 'Y'" checked type="checkbox" enabled = false>-->
+        <mat-cell *matCellDef="let row"><mat-checkbox *ngIf="row.autoVerified==='Y'" checked="true"></mat-checkbox></mat-cell>
+<!--        <mat-cell *matCellDef="let row">{{row.autoVerified}}</mat-cell>-->
       </ng-container>
 
-      <!-- Name Column -->
+      <!-- Comments Column -->
       <ng-container matColumnDef="comments">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Autor Verfied </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Comments</mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.comments}} </mat-cell>
       </ng-container>
-
-<!--      &lt;!&ndash; Color Column &ndash;&gt;-->
-<!--      <ng-container matColumnDef="color">-->
-<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>-->
-<!--        <mat-cell *matCellDef="let row" [style.color]="row.comment"> {{row.color}} </mat-cell>-->
-<!--      </ng-container>-->
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;">
@@ -60,7 +70,12 @@
     </mat-table>
   </div>
   <br>
+  <div class="comment">
+    <label for="comment">Comments:</label><br>
+    <textarea id="comment" rows="5" cols="100"></textarea>
+  </div>
   <div class="actions">
     <button class="action-btn btn btn-primary" *ngFor="let act of actionList" (click)="action(act)"> {{act}}</button>
   </div>
-</div> -->
+  <br>
+</div>

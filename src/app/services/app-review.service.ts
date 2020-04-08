@@ -17,12 +17,12 @@ export class AppReviewService {
     appDetails.accounts = '123456789' ;
     appDetails.email = 'jody.harrison@gmail.com' ;
     appDetails.FTE_Emp12MnthsPrior = { fieldName: 'FTE employees for  12 months prior to loan date', amount: 120, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.empWages = { fieldName: 'Employee Wages', amount: 100000, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
+    appDetails.empWages = { fieldName: 'Employee Wages', amount: 100000, source: 'DocX', autoVerified: 'N', comments: 'Comment1' };
     appDetails.lessOwnerWagesExcess100K = { fieldName: 'Less employee/owner wages in excess of 100K', amount: 5000, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
     appDetails.lessQualifiedSickLeaveWagesUnderFFCRA = { fieldName: 'Less qualified sick leave wages covered under FFCRA', amount: 2000, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
     appDetails.lessQualifiedFamilyLeaveWagesUnderFFCRA = { fieldName: 'Less qualified family leave wages covered under FFCRA', amount: 4000, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
     appDetails.groupHealthCareBenefitsInsPremium = { fieldName: 'Group health care benefits - insurance premiums', amount: 3000, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.paymentRetirementBen = { fieldName: 'Payment of retirement benefit', amount: 5000, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
+    appDetails.paymentRetirementBen = { fieldName: 'Payment of retirement benefit', amount: 5000, source: 'DocX', autoVerified: 'N', comments: 'Comment1' };
     appDetails.paymentEmployerPayrollTaxesStateLocal = { fieldName: 'Payment of employer payroll taxes - State & local', amount: 2300, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
     appDetails.contractLabor = { fieldName: 'Contract labor ', amount: 120000, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
     appDetails.lessIndividualContractLaborExcess100K = { fieldName: 'Less individual contract labor in excess of 100K', amount: 21345, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
