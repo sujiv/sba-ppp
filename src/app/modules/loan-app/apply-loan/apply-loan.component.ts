@@ -39,10 +39,33 @@ export class ApplyLoanComponent implements OnInit {
     // const  healthCost= new FormData();
     // healthCost.append()
     // const  gParoll= new FormData();
-      this.loanApplicationService.saveLoanApplicationForm(this.selectedFile, this.selectedFile, this.selectedFile, this.loanApplocationFormData)
+
+    // ================================
+
+    // for (var j = 0; j < this.uploader.queue.length; j++) {
+    //   let data = new FormData();
+    //   let fileItem = this.uploader.queue[j]._file;
+    //   console.log(fileItem.name);
+    //   data.append('file', fileItem);
+    //   data.append('fileSeq', 'seq'+j);
+    //   data.append( 'dataType', this.uploadForm.controls.type.value);
+    //   this.uploadFile(data).subscribe(data => alert(data.message));
+    // }
+
+    // const files = new  FormData();
+    // files.append('irs941', this.selectedFile);
+    // files.append('healthcare', this.selectedFile);
+    // files.append('gross_payroll', this.selectedFile);
+
+    // tslint:disable-next-line:max-line-length
+    this.loanApplicationService.saveLoanApplicationForm(this.selectedFile, this.selectedFile, this.selectedFile, this.loanApplocationFormData)
       .subscribe(resp => {
-      console.log(resp); }
-      );
+        console.log('========data after rest ============' + resp);
+      });
+      // this.loanApplicationService.saveLoanApplicationForm(this.selectedFile, this.selectedFile, this.selectedFile, this.loanApplocationFormData)
+      // .subscribe(resp => {
+      // console.log(resp); }
+      // );
   }
   onFileSelected(event) {
     console.log(event);
