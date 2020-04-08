@@ -19,7 +19,7 @@ export class AppReviewService {
     appDetails.TIN_EIN_SIN = 'XXX-XX-1243' ;
     appDetails.accounts = '123456789' ;
     appDetails.email = 'jody.harrison@gmail.com' ;
-    appDetails.FTE_Emp12MnthsPrior = { fieldName: 'FTE employees for  12 months prior to loan date', amount: 120, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
+    appDetails.FTE_Emp12MnthsPrior = { fieldName: 'FTE employees for 12 months prior to loan date', amount: 120, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
     appDetails.empWages = { fieldName: 'Employee Wages', amount: 100000, source: 'DocX', autoVerified: 'N', comments: 'Comment1' };
     appDetails.lessOwnerWagesExcess100K = { fieldName: 'Less employee/owner wages in excess of 100K', amount: 5000, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
     appDetails.lessQualifiedSickLeaveWagesUnderFFCRA = { fieldName: 'Less qualified sick leave wages covered under FFCRA', amount: 2000, source: 'DocX', autoVerified: 'Y', comments: 'Comment1' };
