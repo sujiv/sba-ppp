@@ -1,8 +1,8 @@
 .main {
   margin-left: 10px;
-  height: 120vh;
+  /*height: 120vh;*/
   padding: 20px;
-  width: 95vw;
+  width: 97vw;
   box-shadow: 0 2px 13px 0 rgba(14, 21, 45, 0.16);
   background-color: #ffffff;
 }
@@ -31,8 +31,10 @@
   transform: translate3d(0, 0, 0);
   transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #1589ee;
-  /*background-color: #cf404d;*/
+  /*background-color: #5a7898;*/
   color: white;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 .info-header-2{
@@ -49,7 +51,8 @@
   background-color: aliceblue;
   box-shadow: 0 2px 13px 0 rgba(14, 21, 45, 0.16);
   border-radius: 5px;
-  padding-left: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
 }
 
 .mat-grid-tile .mat-figure{
@@ -90,14 +93,25 @@
 .mat-header-cell{
   font-size: 14px;
 }
+td{
+  font-family: SourceSansPro-Regular;
+  font-size: 18px;
+  /*font-weight: bold;*/
+  /*line-height: .86;*/
+  /*max-height: 10px;*/
+  /*color: #0058c3;*/
+  color: #5a7898;
+  text-align: left;
+}
 .mat-cell {
   font-family: SourceSansPro-Regular;
   font-size: 18px;
   /*font-weight: bold;*/
   line-height: .86;
   max-height: 10px;
-  letter-spacing: 1.02px;
-  color: #0058c3;
+  /*color: #0058c3;*/
+  color: #5a7898;
+  text-align: right;
 }
 .mat-row{
 
@@ -105,7 +119,7 @@
 .row-h2{
   font-family: SourceSansPro-Regular !important;
   font-size: 20px !important;
-  /*font-weight: bold;*/
+  font-weight: bold;
   /*background-color: antiquewhite ;*/
 }
 #mat-profile{

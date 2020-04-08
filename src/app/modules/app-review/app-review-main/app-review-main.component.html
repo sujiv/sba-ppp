@@ -14,22 +14,10 @@
         <td><h2>Email</h2></td><td><h2>: {{ appDetails.email }}</h2></td>
       </tr>
     </table>
-<!--      <mat-grid-list cols="2" rowHeight="15:1">-->
-<!--&lt;!&ndash;      <mat-grid-list cols="2">&ndash;&gt;-->
-<!--        <mat-grid-tile class="mat-profile"><h2>Business Legal Name: {{ appDetails.legalName }}</h2></mat-grid-tile>-->
-<!--        <mat-grid-tile class="mat-profile"><h2>Business TIN(EIN, SSN): {{ appDetails.TIN_EIN_SIN }}</h2></mat-grid-tile>-->
-<!--        <mat-grid-tile class="mat-profile"><h2>Primary Contact: {{ appDetails.primaryContact }}</h2></mat-grid-tile>-->
-<!--        <mat-grid-tile class="mat-profile"><h2>Account(s): {{ appDetails.accounts }}</h2></mat-grid-tile>-->
-<!--        <mat-grid-tile class="mat-profile"><h2>Business Phone: {{ appDetails.businessPhone }}</h2></mat-grid-tile>-->
-<!--        <mat-grid-tile class="mat-profile"><h2>Email: {{ appDetails.email }}</h2></mat-grid-tile>-->
-<!--      </mat-grid-list>-->
   </div>
   <br>
   <br>
   <div class="details">
-<!--    <div class="info-header-2">-->
-<!--      <h2>Total expenditures for prior 12 months:</h2>-->
-<!--    </div>-->
     <mat-table [dataSource]="dataSource" matSort>
 
       <!-- Field Column -->
@@ -41,7 +29,7 @@
       <!-- Amount Column -->
       <ng-container matColumnDef="amount">
         <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
-        <mat-cell *matCellDef="let row" ><div *ngIf="row.amount!==null"> ${{row.amount}} </div></mat-cell>
+        <mat-cell *matCellDef="let row" ><div *ngIf="row.amount!==null" class="mat-cell" style="width: 100px"> ${{row.amount}} </div></mat-cell>
       </ng-container>
 
       <!-- Source Column -->
@@ -70,22 +58,23 @@
     </mat-table>
   </div>
   <br>
-<!--  <mat-form-field appearance="outline" class="textarea">-->
-  <form #applyForm="ngForm" (ngSubmit)="action('Action')">
     <div>
-      <mat-form-field appearance="outline" class="textarea">
-        <mat-label>Any additional information you would like to provide</mat-label>
-        <textarea matInput></textarea>
-      </mat-form-field>
     </div>
 <!--  </mat-form-field>-->
 <!--  <div class="comment">-->
 <!--    <label for="comment">Comments:</label><br>-->
 <!--    <textarea  id="comment" rows="5" cols="100"></textarea>-->
 <!--  </div>-->
+  <div class="md-form">
+    <label for="form7">Comments:</label>
+    <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
+  </div>
   <div class="actions">
     <button mat-raised-button class="action-btn" *ngFor="let act of actionList" (click)="action(act)" type="submit"> {{act}}</button>
   </div>
-  </form>
   <br>
+  <div *ngIf="submitted">
+    <h4>Appliction Reviewed Successfully!</h4>
+    <a mat-raised-button color="warn" routerLink="/">Back</a>
+  </div>
 </div>

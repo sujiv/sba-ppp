@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AppDetails} from '../../../models/AppDetails';
 import {AppReviewService} from '../../../services/app-review.service';
 import {RowItem} from '../../../models/RowItem';
-import {MatTableDataSource} from '@angular/material/table';
 import {ActivatedRoute} from '@angular/router';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-app-review-main',
@@ -15,6 +15,7 @@ export class AppReviewMainComponent implements OnInit {
   displayedColumns = ['fields', 'amount', 'source', 'autoVerified', 'comments'];
   dataSource: MatTableDataSource<RowItem>;
   actionList: string[] = ['Approve', 'AddInfo', 'Deny', 'Comment'];
+  submitted = false;
 
   constructor(private appReviewService: AppReviewService, private route: ActivatedRoute) {
     appReviewService.getAppDetails(0).then( details => {
@@ -50,5 +51,6 @@ export class AppReviewMainComponent implements OnInit {
 
   action(cmd: string) {
     console.log(cmd);
+    this.submitted = true;
   }
 }
