@@ -71,21 +71,13 @@
   </div>
   <br>
 <!--  <mat-form-field appearance="outline" class="textarea">-->
-  <form #applyForm="ngForm">
+  <form #applyForm="ngForm" (ngSubmit)="action('Action')">
     <div>
       <mat-form-field appearance="outline" class="textarea">
         <mat-label>Any additional information you would like to provide</mat-label>
         <textarea matInput></textarea>
       </mat-form-field>
     </div>
-    <div>
-      <mat-checkbox class="checkbox-margin" color="primary">I attest that all the information submitted above is accurate</mat-checkbox>
-    </div>
-    <div>
-      <button mat-raised-button class="submit" type="submit">Submit Loan Application</button>
-    </div>
-    <mat-label>Comments</mat-label>
-    <textarea matInput></textarea>
 <!--  </mat-form-field>-->
 <!--  <div class="comment">-->
 <!--    <label for="comment">Comments:</label><br>-->
