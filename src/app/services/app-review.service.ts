@@ -4,19 +4,20 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {JsonObject} from '@angular/compiler-cli/ngcc/src/packages/entry_point';
 import {ApplicationDetails} from '../models/ApplicationDetails';
 import {Observable} from 'rxjs';
-import {PPPApplicationList} from "../modules/app-list/app-list-view/app-list-view.component";
+import {PPPApplicationList} from '../modules/app-list/app-list-view/app-list-view.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppReviewService {
-  host = 'http://localhost:8080/review';
+  // host = 'http://localhost:8080/review';
+  hostUrl = `https://loan-application-service.cfapps.io/review`;
   appDetails: ApplicationDetails;
   constructor(private httpClient: HttpClient) {}
 
   public async getAppDetails(id: number): Promise<ApplicationDetails> {
     console.log('searcing for application:' + id);
-    await this.httpClient.get<ApplicationDetails>(`${this.host}/${id}`).subscribe(j => {
+    await this.httpClient.get<ApplicationDetails>(`${this.hostUrl}/${id}`).subscribe(j => {
       console.log('found first row:');
       console.log(j.FTE_Emp12MnthsPrior);
       // appDetails = new AppDetails();
@@ -34,7 +35,7 @@ export class AppReviewService {
 
   public getAppDetailsOb(id: number): Observable<ApplicationDetails> {
     console.log('searcing for application:' + id);
-    return this.httpClient.get<ApplicationDetails>(`${this.host}/${id}`);
+    return this.httpClient.get<ApplicationDetails>(`${this.hostUrl}/${id}`);
   }
 
   reviewApplication(id: number, cmd: string, cmt: string): Observable<any>{
@@ -42,10 +43,10 @@ export class AppReviewService {
       command: cmd,
       comment: cmt
     }
-    return this.httpClient.post<any>(`${this.host}/${id}/?command=${cmd}&comment=${cmt}`, param);
+    return this.httpClient.post<any>(`${this.hostUrl}/${id}/?command=${cmd}&comment=${cmt}`, param);
   }
 
   getAllAppDetailsOb(): Observable<PPPApplicationList[]> {
-    return this.httpClient.get<PPPApplicationList[]>(`${this.host}/`);
+    return this.httpClient.get<PPPApplicationList[]>(`${this.hostUrl}/`);
   }
 }

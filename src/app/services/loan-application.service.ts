@@ -14,21 +14,22 @@ import { Observable } from 'rxjs';
 })
 export class LoanApplicationService {
 
-  public userInputsDataModel:UserInputsDataModel = new UserInputsDataModel();
+  public userInputsDataModel: UserInputsDataModel = new UserInputsDataModel();
   public uploadFiles: UploadFiles = new UploadFiles();
 
 
-  hostUrl = `http://localhost:8080/sba/loan/upload`;
+  // hostUrl = `http://localhost:8080/sba/loan/upload`;
+  hostUrl = `https://loan-application-service.cfapps.io/`;
 
-  constructor( private httpClient: HttpClient, private router:Router) { }
+  constructor( private httpClient: HttpClient, private router: Router) { }
 
   saveFormData(): Observable<any> {
 
-    console.log("Inside Service");
+    console.log('Inside Service');
 
     console.log(this.userInputsDataModel);
 
-   return this.httpClient.post<any>(this.hostUrl+"/basicdata", this.userInputsDataModel);
+    return this.httpClient.post<any>(this.hostUrl + '/basicdata', this.userInputsDataModel);
   }
 
 
