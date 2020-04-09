@@ -1,45 +1,51 @@
 import { Injectable } from '@angular/core';
 import {AppDetails} from '../models/AppDetails';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {JsonObject} from '@angular/compiler-cli/ngcc/src/packages/entry_point';
+import {ApplicationDetails} from '../models/ApplicationDetails';
+import {Observable} from 'rxjs';
+import {PPPApplicationList} from "../modules/app-list/app-list-view/app-list-view.component";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppReviewService {
-  // host = 'http://localhost:4200';
+  host = 'http://localhost:8080/review';
+  appDetails: ApplicationDetails;
   constructor(private httpClient: HttpClient) {}
 
-  public async getAppDetails(id: number): Promise<AppDetails> {
+  public async getAppDetails(id: number): Promise<ApplicationDetails> {
     console.log('searcing for application:' + id);
-    let appDetails = new AppDetails();
-    appDetails.legalName = 'Jody Scott Harrison' ;
-    appDetails.primaryContact = '4700 LAS VEGAS BLVD NELLIS AFB NV 89191' ;
-    appDetails.businessPhone = '7026533148' ;
-    appDetails.TIN_EIN_SIN = 'XXX-XX-1243' ;
-    appDetails.accounts = '123456789' ;
-    appDetails.email = 'jody.harrison@gmail.com' ;
-    appDetails.FTE_Emp12MnthsPrior = { fieldName: 'FTE employees for 12 months prior to loan date', amount: 120, source: 'IRS 941', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.empWages = { fieldName: 'Employee Wages', amount: 100000, source: 'IRS 941', autoVerified: 'N', comments: 'Comment1' };
-    appDetails.lessOwnerWagesExcess100K = { fieldName: 'Less employee/owner wages in excess of 100K', amount: 5000, source: 'ADP Monthly Payroll Cost Report', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.lessQualifiedSickLeaveWagesUnderFFCRA = { fieldName: 'Less qualified sick leave wages covered under FFCRA', amount: 2000, source: '', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.lessQualifiedFamilyLeaveWagesUnderFFCRA = { fieldName: 'Less qualified family leave wages covered under FFCRA', amount: 4000, source: '', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.groupHealthCareBenefitsInsPremium = { fieldName: 'Group health care benefits - insurance premiums', amount: 3000, source: 'ADP Monthly Payroll Cost Report', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.paymentRetirementBen = { fieldName: 'Payment of retirement benefit', amount: 5000, source: 'ADP Monthly Payroll Cost Report', autoVerified: 'N', comments: 'Comment1' };
-    appDetails.paymentEmployerPayrollTaxesStateLocal = { fieldName: 'Payment of employer payroll taxes - State & local', amount: 2300, source: 'ADP Monthly Payroll Cost Report', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.contractLabor = { fieldName: 'Contract labor ', amount: 120000, source: '', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.lessIndividualContractLaborExcess100K = { fieldName: 'Less individual contract labor in excess of 100K', amount: 21345, source: '', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.prior12MnthsCumQualifyingPayrollCost = { fieldName: 'Prior 12 months cumulative qualifying payroll cost', amount: 234555, source: 'Calculate / ADP Monthly Payroll Cost Report', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.avgMonthlyPayrollcosts = { fieldName: 'Average monthly payroll costs', amount: 1230000, source: 'Calculate / ADP Monthly Payroll Cost Report', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.multiplier2dot5 = { fieldName: 'x 2.5', amount: 3075000, source: 'Calculate', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.EDIL_ObtainedFrmJan31ToBeRefinanced = { fieldName: 'EDIL obtained from January 31, 2020 to be refinanced under program', amount: 500000, source: 'API', autoVerified: 'Y', comments: 'Comment1' };
-    appDetails.PPP_LoadAmntLesserOfCalcOr10Mil = { fieldName: 'PPP Loan amount, lesser of calculation or $10 million', amount: 2575000, source: 'Calculate', autoVerified: 'Y', comments: 'Comment1' };
+    await this.httpClient.get<ApplicationDetails>(`${this.host}/${id}`).subscribe(j => {
+      console.log('found first row:');
+      console.log(j.FTE_Emp12MnthsPrior);
+      // appDetails = new AppDetails();
+      // appDetails.legalName = j.legalName;
+      // appDetails.FTE_Emp12MnthsPrior = j.FTE_Emp12MnthsPrior;
+      // appDetails.empWages = j.empWages;
+      // appDetails.accounts = j.accounts;
+      console.log(this.appDetails);
+      return this.appDetails;
+    });
+    // console.log('before return:');
+    // console.log(this.appDetails);
+    return this.appDetails;
+  }
 
-    // await this.httpClient.get<JsonObject>(this.host).subscribe(j => {
-    //   console.log(j);
-    //   appDetails = new AppDetails();
-    //   appDetails.legalName = j.legalName;
-    // })
-    return appDetails;
+  public getAppDetailsOb(id: number): Observable<ApplicationDetails> {
+    console.log('searcing for application:' + id);
+    return this.httpClient.get<ApplicationDetails>(`${this.host}/${id}`);
+  }
+
+  reviewApplication(id: number, cmd: string, cmt: string) {
+    const param = {
+      command: cmd,
+      comment: cmt
+    }
+    return this.httpClient.post<string>(`${this.host}/${id}/?command=${cmd}&comment=${cmt}`, param);
+  }
+
+  getAllAppDetailsOb(): Observable<PPPApplicationList[]> {
+    return this.httpClient.get<PPPApplicationList[]>(`${this.host}/`);
   }
 }

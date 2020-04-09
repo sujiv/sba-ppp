@@ -4,4 +4,5 @@ export class RowItem {
   public source: any;
   public autoVerified: any;
   public comments: any;
+  public mark?: any;
 }
