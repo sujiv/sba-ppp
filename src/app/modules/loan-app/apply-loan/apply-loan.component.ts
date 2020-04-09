@@ -59,7 +59,7 @@ export class ApplyLoanComponent implements OnInit {
     this.loanApplicationService.userInputsDataModel.selfEmp = this.selfEmp;
     this.loanApplicationService.userInputsDataModel.legalName = this.legalName;
     this.loanApplicationService.userInputsDataModel.tradeName = this.tradeName;
-    this.loanApplicationService.userInputsDataModel.TIN= this.TIN_EIN_SIN;
+    this.loanApplicationService.userInputsDataModel.TIN_EIN_SIN= this.TIN_EIN_SIN;
     this.loanApplicationService.userInputsDataModel.businessPhone = this.businessPhone;
     this.loanApplicationService.userInputsDataModel.primaryContact = this.primaryContact;
     this.loanApplicationService.userInputsDataModel.email = this.email;

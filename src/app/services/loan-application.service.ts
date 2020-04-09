@@ -23,24 +23,24 @@ export class LoanApplicationService {
 
   constructor( private httpClient: HttpClient, private router:Router) { }
 
-  saveFormData(): Observable<string> {
+  saveFormData(): Observable<any> {
 
     console.log("Inside Service");
 
     console.log(this.userInputsDataModel);
 
-   return this.httpClient.post<string>(this.hostUrl+"/basicdata", this.userInputsDataModel);
+   return this.httpClient.post<any>(this.hostUrl+"/basicdata", this.userInputsDataModel);
   }
 
 
   // tslint:disable-next-line:max-line-length
-  uploadDocuments(): Observable<string> {
+  uploadDocuments(): Observable<any> {
     const  formData: FormData = new FormData();
     formData.append('document', this.uploadFiles.irs941Files, this.uploadFiles.irs941Files.name);
     formData.append('document', this.uploadFiles.healthcareCostsFile, this.uploadFiles.healthcareCostsFile.name);
     formData.append('document', this.uploadFiles.grossPayrollFile, this.uploadFiles.grossPayrollFile.name);
 
-    return this.httpClient.post<string>(this.hostUrl, formData);
+    return this.httpClient.post<any>(this.hostUrl, formData);
 
   }
 

@@ -19,6 +19,8 @@ export class CertificationsComponent implements OnInit {
   certifyLine5: boolean = false;
   certifyLine6: boolean = false;
   certifyLine7: boolean = false;
+  signatureAuthRep: string= null;
+  signatureOwner: string = null;
 
 
 
@@ -37,6 +39,13 @@ export class CertificationsComponent implements OnInit {
     this.loanApplicationService.userInputsDataModel.certifyLine5 = this.certifyLine5;
     this.loanApplicationService.userInputsDataModel.certifyLine6 = this.certifyLine6;
     this.loanApplicationService.userInputsDataModel.certifyLine7 = this.certifyLine7;
+
+    if(this.signatureAuthRep !== null) {
+      this.loanApplicationService.userInputsDataModel.signatureAuthRep = true;
+    }
+    if(this.signatureOwner !== null) {
+      this.loanApplicationService.userInputsDataModel.signatureOwner = true;
+    }
 
     this.loanApplicationService.saveFormData().subscribe(res=>{
       console.log(res);

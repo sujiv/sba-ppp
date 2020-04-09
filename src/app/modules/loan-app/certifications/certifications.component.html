@@ -73,14 +73,14 @@
                     <div style="margin-left: 30px;">
                         <mat-form-field appearance="standard" class="input">
                             <mat-label>First and Last Name</mat-label>
-                            <input matInput required name="last_name" #last_name>
+                            <input matInput required [(ngModel)]="signatureAuthRep" name="signatureAuthRep">
                         </mat-form-field>
                         <p>Signature of Authorized Representative of Business with First and Last Name</p>
                     </div>
                     <div style="margin-left: 30px;">
                         <mat-form-field appearance="standard" class="input">
                             <mat-label>First and Last Name</mat-label>
-                            <input matInput required name="last_name" #last_name>
+                            <input matInput required [(ngModel)]="signatureOwner" name="signatureOwner">
                         </mat-form-field>
                         <p>Signature of Owner of Applicant Business with First and Last Name</p>
                     </div>
