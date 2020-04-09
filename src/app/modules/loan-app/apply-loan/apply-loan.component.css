@@ -11,7 +11,8 @@
 .card {
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    padding-bottom: 30px;
 }
 
 .checkbox-margin {
@@ -25,7 +26,7 @@
 }
 
 .select {
-    width: 400px;
+    width: 300px;
 }
 
 .submit {

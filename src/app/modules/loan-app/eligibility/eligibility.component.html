@@ -5,15 +5,17 @@
             <h4 class="sub-title">PAYROLL PROTECTION PROGRAM</h4>
         </div>
         <div class="card">
-            <form #applyForm="ngForm" (ngSubmit)="applyEligibility()">
+            <form #eligibiltyForm="ngForm" (ngSubmit)="applyEligibility()">
                 <div style="margin-top: 20px;">
                     <div>
                         <div style="width: 400px; display: inline-block">
                             Is the Business or any owner presently suspended, debarred, proposed for debarment, declared ineligible, voluntarily excludedfrom participation in this transaction by any Federal department or agency, or presently involved in any bankruptcy?
                         </div>
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
-                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="checkbox1" name="checkbox1">
+                                <mat-radio-button class="checkbox-margin" value="Yes" color="primary">Yes</mat-radio-button>
+                                <mat-radio-button class="checkbox-margin" value="No" color="primary">No</mat-radio-button>
+                            </mat-radio-group>
                         </div>
                     </div>
                     <div style="margin-top: 20px;">
@@ -22,8 +24,10 @@
                             tothe government?
                         </div>
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
-                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="checkbox2" name="checkbox2">
+                                <mat-radio-button class="checkbox-margin" value="Yes" color="primary">Yes</mat-radio-button>
+                                <mat-radio-button class="checkbox-margin" value="No" color="primary">No</mat-radio-button>
+                            </mat-radio-group>
                         </div>
                     </div>
                     <div style="margin-top: 20px;">
@@ -31,8 +35,10 @@
                             Is the Business or any owner an owner of any other business or have common management with any other business? If yes,attach a listing of all Affiliates and describe the relationship as addendum A
                         </div>
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
-                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="checkbox3" name="checkbox3">
+                                <mat-radio-button class="checkbox-margin" value="Yes" color="primary">Yes</mat-radio-button>
+                                <mat-radio-button class="checkbox-margin" value="No" color="primary">No</mat-radio-button>
+                            </mat-radio-group>
                         </div>
                     </div>
                     <div style="margin-top: 20px;">
@@ -40,8 +46,10 @@
                             Has the Business received an SBA Economic Injury Disaster Loan between January 31, 2020 and April 3, 2020? If yes,provide details on a separate sheet identified as addendum B
                         </div>
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
-                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="checkbox4" name="checkbox4">
+                                <mat-radio-button class="checkbox-margin" value="Yes" color="primary">Yes</mat-radio-button>
+                                <mat-radio-button class="checkbox-margin" value="No" color="primary">No</mat-radio-button>
+                            </mat-radio-group>
                         </div>
                     </div>
                     <div style="margin-top: 20px;">
@@ -49,8 +57,10 @@
                             Are you presently subject to an indictment, criminal information, arraignment, or other means bywhich formal criminal charges are brought in any jurisdiction, or presently incarcerated, on probationor parole?
                         </div>
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
-                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="checkbox5" name="checkbox5">
+                                <mat-radio-button class="checkbox-margin" value="Yes" color="primary">Yes</mat-radio-button>
+                                <mat-radio-button class="checkbox-margin" value="No" color="primary">No</mat-radio-button>
+                            </mat-radio-group>
                         </div>
                     </div>
                     <div style="margin-top: 20px;">
@@ -59,14 +69,16 @@
                             probation before judgment)?
                         </div>
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary">Yes</mat-checkbox>
-                            <mat-checkbox class="checkbox-margin" color="primary">No</mat-checkbox>
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="checkbox6" name="checkbox6">
+                                <mat-radio-button class="checkbox-margin" value="Yes" color="primary">Yes</mat-radio-button>
+                                <mat-radio-button class="checkbox-margin" value="No" color="primary">No</mat-radio-button>
+                            </mat-radio-group>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <button mat-raised-button class="submit" type="submit" routerLink="/apply">Continue</button>
-                </div>
+                <mat-card-actions>
+                    <button mat-raised-button class="submit" type="submit">Continue</button>
+                </mat-card-actions>
             </form>
         </div>
     </div>

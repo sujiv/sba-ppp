@@ -7,70 +7,74 @@
         <div class="card">
             <form #applyForm="ngForm" (ngSubmit)="applyLoan()">
                 <div style="margin-top: 50px;">
-                    <mat-checkbox class="checkbox-margin" color="primary">Non Profit</mat-checkbox>
-                    <mat-checkbox class="checkbox-margin" color="primary">Vet Org</mat-checkbox>
-                    <mat-checkbox class="checkbox-margin" color="primary">Tribal</mat-checkbox>
-                    <mat-checkbox class="checkbox-margin" color="primary">Ind. Cont.</mat-checkbox>
-                    <mat-checkbox class="checkbox-margin" color="primary">Self Employed</mat-checkbox>
+                    <mat-checkbox class="checkbox-margin" [(ngModel)]="nonProfit" name="nonProfit" color="primary">Non Profit</mat-checkbox>
+                    <mat-checkbox class="checkbox-margin" [(ngModel)]="vetOrg" name="vetOrg" color="primary">Vet Org</mat-checkbox>
+                    <mat-checkbox class="checkbox-margin" [(ngModel)]="tribal" name="tribal" color="primary">Tribal</mat-checkbox>
+                    <mat-checkbox class="checkbox-margin" [(ngModel)]="indCont" name="indCont" color="primary">Ind. Cont.</mat-checkbox>
+                    <mat-checkbox class="checkbox-margin" [(ngModel)]="selfEmp" name="selfEmp" color="primary">Self Employed</mat-checkbox>
                 </div>
                 <div style="margin-top: 10px;">
                     <mat-form-field appearance="outline" class="input">
                         <!-- [(ngModel)]="customer.id" -->
                         <mat-label>Business Legal Name</mat-label>
-                        <input matInput required name="name" #name>
+                        <input matInput required [(ngModel)]="legalName" name="legalName">
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input">
                         <mat-label>Doing Business as or Trade Name is Applicable</mat-label>
-                        <input matInput required name="first_name" #first_name>
+                        <input matInput required [(ngModel)]="tradeName" name="tradeName">
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-form-field appearance="outline" class="input">
                         <mat-label>Business TIN (EIN, SSN)</mat-label>
-                        <input matInput required name="last_name" #last_name>
+                        <input matInput required [(ngModel)]="TIN_EIN_SIN" name="TIN_EIN_SIN">
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input">
                         <mat-label>Business Phone</mat-label>
-                        <input matInput required name="email" #email>
+                        <input matInput required [(ngModel)]="businessPhone" name="businessPhone">
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-form-field appearance="outline" class="input">
                         <mat-label>Primary Contact</mat-label>
-                        <input matInput required name="longitude" #longitude>
+                        <input matInput required [(ngModel)]="primaryContact" name="primaryContact">
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input">
                         <mat-label>Email Address</mat-label>
-                        <input matInput required name="latitude" #latitude>
+                        <input matInput required [(ngModel)]="email" name="email">
                     </mat-form-field>
                 </div>
                 <div>
+                    <mat-form-field appearance="outline" class="input">
+                        <mat-label>Account Number</mat-label>
+                        <input matInput required [(ngModel)]="accounts" name="accounts">
+                    </mat-form-field>
                     <mat-form-field appearance="outline" class="select">
                         <mat-label>Select Business Entity Type</mat-label>
-                        <mat-select required>
-                            <mat-option>Sole Proprietor</mat-option>
-                            <mat-option>S Corporation</mat-option>
-                            <mat-option>C Corporation</mat-option>
-                            <mat-option>Limited Liability Corporation </mat-option>
+                        <mat-select required [(ngModel)]="businessEntityType" name="businessEntityType">
+                            <mat-option value="Sole Proprietor">Sole Proprietor</mat-option>
+                            <mat-option value="S Corporation">S Corporation</mat-option>
+                            <mat-option value="C Corporation">C Corporation</mat-option>
+                            <mat-option value="Limited Liability Corporation ">Limited Liability Corporation </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-form-field appearance="outline" class="input">
                         <mat-label>Average Monthly Payroll</mat-label>
-                        <input matInput required name="created_at" #created_at>
+                        <input matInput required [(ngModel)]="avgMonthlyPayrollcosts" name="avgMonthlyPayrollcosts">
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input">
                         <mat-label>Number of Jobs</mat-label>
-                        <input matInput required name="updated_at" #updated_at>
+                        <input matInput required [(ngModel)]="numJobs" name="numJobs">
                     </mat-form-field>
                 </div>
                 <div>
-                    <input type="file" hidden (change)="onFileSelectedI($event)" required name="created_at" #irs941>
+                    <input type="file" accept="application/pdf,image/png,image/jpeg" hidden (change)="onFileSelectedI($event)" required name="created_at" #irs941>
                     <button mat-raised-button (click)="irs941.click()" class="file">Upload Quarterly IRS 941</button>
-                    <input type="file" style="display: none;" (change)="onFileSelectedII($event)" required name="created_at" #healthCareCosts>
+                    <input type="file" accept="application/pdf,image/png,image/jpeg" style="display: none;" (change)="onFileSelectedII($event)" required name="created_at" #healthCareCosts>
                     <button mat-raised-button color="primary" (click)="healthCareCosts.click()" class="file">Upload Healthcare Costs</button>
-                    <input type="file" style="display: none;" (change)="onFileSelectedIII($event)" required name="created_at" #grossPayroll>
+                    <input type="file" accept="application/pdf,image/png,image/jpeg" style="display: none;" (change)="onFileSelectedIII($event)" required name="created_at" #grossPayroll>
                     <button mat-raised-button color="primary" (click)="grossPayroll.click()" class="file">Upload Gross Payroll</button>
 
                 </div>
@@ -84,14 +88,14 @@
                 <div>
                     <mat-form-field appearance="outline" class="textarea">
                         <mat-label>Any additional information you would like to provide</mat-label>
-                        <textarea matInput></textarea>
+                        <textarea matInput [(ngModel)]="addInfo" name="addInfo"></textarea>
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-checkbox class="checkbox-margin" color="primary">I attest that all the information submitted above is accurate</mat-checkbox>
                 </div>
                 <div>
-                    <button mat-raised-button class="submit" type="submit" routerLink="/certification">Continue</button>
+                    <button mat-raised-button class="submit" type="submit">Continue</button>
                 </div>
             </form>
         </div>
