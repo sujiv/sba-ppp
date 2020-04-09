@@ -37,7 +37,7 @@ export class AppReviewService {
     return this.httpClient.get<ApplicationDetails>(`${this.host}/${id}`);
   }
 
-  reviewApplication(id: number, cmd: string, cmt: string) {
+  reviewApplication(id: number, cmd: string, cmt: string): Observable<any>{
     const param = {
       command: cmd,
       comment: cmt
