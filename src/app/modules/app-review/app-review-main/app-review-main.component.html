@@ -71,14 +71,14 @@
   </div>
   <div class="actions">
 <!--    <button mat-raised-button class="action-btn" *ngFor="let act of actionList.keys()" (click)="action(act, comment.value)" type="submit"> {{actionList.get(act)}}</button>-->
-    <button mat-raised-button class="action-btn" (click)="action('approved', comment.value)" type="submit"> Approved</button>
-    <button mat-raised-button class="action-btn" (click)="action('addInfo', comment.value)" type="submit"> Additional Information</button>
-    <button mat-raised-button class="action-btn" (click)="action('deny', comment.value)" type="submit"> Deny</button>
-    <button mat-raised-button class="action-btn" (click)="action('commented', comment.value)" type="submit"> Comment</button>
+    <button mat-raised-button class="action-btn" (click)="action('Approved', comment.value)" type="submit"> Approved</button>
+    <button mat-raised-button class="action-btn" (click)="action('Requested Additional Info.', comment.value)" type="submit"> Additional Information</button>
+    <button mat-raised-button class="action-btn" (click)="action('Denied', comment.value)" type="submit"> Deny</button>
+    <button mat-raised-button class="action-btn" (click)="action('Commented', comment.value)" type="submit"> Comment</button>
   </div>
   <br>
   <div *ngIf="submitted">
-    <h4>Appliction Reviewed Successfully!</h4>
+    <h4>Response:{{response}}</h4>
     <a mat-raised-button color="warn" routerLink="/list">Back</a>
   </div>
 </div>

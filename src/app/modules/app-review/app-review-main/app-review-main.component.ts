@@ -19,6 +19,7 @@ export class AppReviewMainComponent implements OnInit {
   actionList: Map<string, string>;
   submitted = false;
   comments = '';
+  response: any;
 
   constructor(private appReviewService: AppReviewService, private route: ActivatedRoute) {
     this.actionList = new Map<string, string>();
@@ -65,7 +66,10 @@ export class AppReviewMainComponent implements OnInit {
 
   action(cmd: string, comment: string) {
     console.log(cmd + ': ' + comment);
-    this.appReviewService.reviewApplication(this.appDetails.userInputId, cmd, comment).subscribe(res => console.log(res));
+    this.appReviewService.reviewApplication(this.appDetails.userInputId, cmd, comment).subscribe(res => {
+      console.log(res);
+      this.response = res;
+    });
     this.submitted = true;
   }
 }
