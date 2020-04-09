@@ -19,7 +19,6 @@ export class LoanApplicationService {
 
 
   hostUrl = `http://localhost:8080/sba/loan/upload`;
-  //localhost:8080/sba/loan/upload/basicdata
 
   constructor( private httpClient: HttpClient, private router:Router) { }
 
