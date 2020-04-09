@@ -79,10 +79,10 @@
 
                 </div>
                 <div>
-                    <div cols="3" rowHeight="2:1">
-                        <div *ngIf="irs941Upload" class="upload">{{irs941Upload}}</div>
-                        <div *ngIf="healthCareUpload" class="upload">{{healthCareUpload}}</div>
-                        <div *ngIf="grossPayrollUpload" class="upload">{{grossPayrollUpload}}</div>
+                    <div *ngIf="irs941Upload">
+                        <div class="upload">{{irs941Upload}}</div>
+                        <div class="upload">{{healthCareUpload}}</div>
+                        <div class="upload">{{grossPayrollUpload}}</div>
                     </div>
                 </div>
                 <div>
@@ -92,11 +92,13 @@
                     </mat-form-field>
                 </div>
                 <div>
-                    <mat-checkbox class="checkbox-margin" color="primary">I attest that all the information submitted above is accurate</mat-checkbox>
+                    <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="attest" name="attest">I attest that all the information submitted above is accurate</mat-checkbox>
                 </div>
                 <div>
-                    <button mat-raised-button class="submit" type="submit">Submit</button>
-                    <button mat-raised-button class="submit" routerLink="/certification">Continue</button>
+                    <button mat-raised-button class="submit" type="submit">Continue</button>
+                </div>
+                <div *ngIf="numJobsError!==null" class="error">
+                    <div>{{numJobsError}}</div>
                 </div>
             </form>
         </div>

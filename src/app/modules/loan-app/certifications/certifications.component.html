@@ -11,7 +11,7 @@
                 <div style="margin-top: 20px;">
                     <div>
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine1" name="certifyLine1"></mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine1" name="certifyLine1" required></mat-checkbox>
                         </div>
                         <div style="width: 800px; display: inline-block">
                             Current economic uncertainty makes this loan request necessary to support the ongoing operations of the Applicant.
@@ -19,7 +19,7 @@
                     </div>
                     <div style="margin-top: 20px;">
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine2" name="certifyLine2"></mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine2" name="certifyLine2" required></mat-checkbox>
                         </div>
                         <div style="width: 800px; display: inline-block">
                             The funds will be used to retain workers and maintain payroll or make mortgage payments, lease payments, and utility payments; Iunderstand that if the funds are used for unauthorized purposes, the federal government may pursue criminal fraud charges.
@@ -27,7 +27,7 @@
                     </div>
                     <div style="margin-top: 20px;">
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine3" name="certifyLine3"></mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine3" name="certifyLine3" required></mat-checkbox>
                         </div>
                         <div style="width: 800px; display: inline-block">
                             Documentation verifying the number of full-time equivalent employees on payroll as well as the dollar amounts of payroll costs, coveredmortgage interest payments, covered rent payments, and covered utilities for the eight week period following this loan
@@ -36,7 +36,7 @@
                     </div>
                     <div style="margin-top: 20px;">
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine4" name="certifyLine4"></mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine4" name="certifyLine4" required></mat-checkbox>
                         </div>
                         <div style="width: 800px; display: inline-block">
                             Loan forgiveness will be provided for the sum of documented payroll costs, covered mortgage interest payments, covered rent payments,and covered utilities. Due to likely high subscription, it is anticipated that not more than twenty-five percent (25%)
@@ -45,7 +45,7 @@
                     </div>
                     <div style="margin-top: 20px;">
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine5" name="certifyLine5"></mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine5" name="certifyLine5" required></mat-checkbox>
                         </div>
                         <div style="width: 800px; display: inline-block">
                             During the period beginning on February 15, 2020 and ending on December 31, 2020, the Applicant has not and will not receive anotherloan under this program.
@@ -53,7 +53,7 @@
                     </div>
                     <div style="margin-top: 20px;">
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine6" name="certifyLine6"></mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine6" name="certifyLine6" required></mat-checkbox>
                         </div>
                         <div style="width: 800px; display: inline-block">
                             I further certify that the information provided in this application and the information that I have provided in all supportingdocuments and forms is true and accurate. I realize that knowingly making a false statement to obtain a guaranteed loan from
@@ -63,7 +63,7 @@
                     </div>
                     <div style="margin-top: 20px;">
                         <div class="checkbox-container">
-                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine7" name="certifyLine7"></mat-checkbox>
+                            <mat-checkbox class="checkbox-margin" color="primary" [(ngModel)]="certifyLine7" name="certifyLine7" required></mat-checkbox>
                         </div>
                         <div style="width: 800px; display: inline-block">
                             I acknowledge that the lender will calculate the eligible loan amount using tax documents I have submitted. I affirm that thesetax documents are identical to those I submitted to the IRS. I also understand, acknowledge and agree that the Lender can sharethe
@@ -88,6 +88,9 @@
                 </div>
                 <div style="margin-left: 30px;">
                     <button mat-raised-button class="submit" type="submit">Submit Application</button>
+                </div>
+                <div *ngIf="submit!=null" class="error">
+                    <div>{{submit}}</div>
                 </div>
             </form>
         </div>

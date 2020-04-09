@@ -33,8 +33,7 @@
     background-color: #cf404d;
     color: white;
     margin-top: 20px;
-    width: 200px;
-    margin-right: 30px;
+    width: 400px;
 }
 
 .input {
@@ -51,4 +50,12 @@
     display: inline-block;
     width: 200px;
     margin-top: 10px;
+    margin-left: 5px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
 }
