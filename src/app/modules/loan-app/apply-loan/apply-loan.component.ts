@@ -18,10 +18,16 @@ export class ApplyLoanComponent implements OnInit {
   healthCareUpload = null;
   grossPayrollUpload = null;
 
-
   irs941Files: File = null;
   healthcareCostsFile: File = null;
   grossPayrollFile: File = null;
+
+  // ==============
+  irs941Files2: File = null;
+  healthcareCostsFile2: File = null;
+  grossPayrollFile2: File = null;
+  // ===============
+
   loanApplocationFormData: UserInputsDataModel;
 
   nonProfit: boolean = false;
@@ -121,17 +127,24 @@ export class ApplyLoanComponent implements OnInit {
 
 
     this.router.navigate(['/certification']);
+    // this.submitted = true;
+    // this.loanApplicationService.saveLoanApplicationForm(this.irs941Files2, this.healthcareCostsFile2, this.irs941Files2)
+    //   .subscribe(resp => {
+    //     console.log('========data after rest ============' + resp);
+    //   });
   }
   onFileSelectedI(event) {
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
+    this.irs941Files2= this.selectedFile;
     this.irs941Upload=this.selectedFile.name;
-    console.log(this.selectedFile.name)
+    console.log(this.selectedFile.name);
 
   }
   onFileSelectedII(event) {
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
+    this.healthcareCostsFile2= this.selectedFile;
     this.healthCareUpload=this.selectedFile.name;
     console.log(this.selectedFile.name)
 
@@ -149,4 +162,21 @@ export class ApplyLoanComponent implements OnInit {
 
 
 
+
+  onFileSelectedIII($event: Event) {
+    // console.log(event);
+    // this.selectedFile = <File>event.target.files[0];
+    // // this.grossPayrollFile =this.selectedFile.name;
+    // this.grossPayrollUpload= this.selectedFile.name;
+    // this.grossPayrollFile2= this.selectedFile;
+    // console.log(this.selectedFile.name);
+  }
+
+  saveImages() {
+
+    this.loanApplicationService.saveLoanApplicationForm(this.irs941Files2, this.healthcareCostsFile2, this.irs941Files2)
+      .subscribe(resp => {
+        console.log('========data after rest ============' + resp);
+      });
+  }
 }
