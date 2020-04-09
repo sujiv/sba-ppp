@@ -42,6 +42,10 @@ export class CertificationsComponent implements OnInit {
       console.log(res);
     });
 
+    this.loanApplicationService.uploadDocuments().subscribe(res=>{
+      console.log(res);
+    });
+
     //this.router.navigate(['/eligibility']);
   }
 
