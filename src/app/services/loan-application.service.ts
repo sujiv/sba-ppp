@@ -19,7 +19,7 @@ export class LoanApplicationService {
 
 
   // hostUrl = `http://localhost:8080/sba/loan/upload`;
-  hostUrl = `https://loan-application-service.cfapps.io/`;
+  hostUrl = `https://loan-application-service.cfapps.io/sba/loan/upload`;
 
   constructor( private httpClient: HttpClient, private router: Router) { }
 
