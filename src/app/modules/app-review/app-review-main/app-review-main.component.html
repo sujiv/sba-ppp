@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="profile">
+  <div class="profile" *ngIf="appDetails !==undefined">
     <table>
       <tr>
         <td width="20%"><div class="profile-info">Business Legal Name</div></td><td width="40%"><div class="profile-info">: {{ appDetails.legalName }}</div></td>
@@ -23,14 +23,15 @@
       <!-- Field Column -->
       <ng-container matColumnDef="fields">
         <mat-header-cell *matHeaderCellDef mat-sort-header > </mat-header-cell>
-        <mat-cell *matCellDef="let row" [ngClass]="{'row-h2':row.amount===null}"> {{row.fieldName}}</mat-cell>
+        <mat-cell *matCellDef="let row" [ngClass]="{'row-h2':row.mark!==null&&row.mark==='H'}"> {{row.fieldName}}</mat-cell>
+<!--        <mat-cell *matCellDef="let row"> {{row.fieldName}}</mat-cell>-->
       </ng-container>
 
       <!-- Amount Column -->
       <ng-container matColumnDef="amount">
         <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
         <mat-cell *matCellDef="let row" ><div *ngIf="row.amount!==null" class="mat-cell" style="width: 100px">
-          <span *ngIf="(row.fieldName !=='FTE employees for 12 months prior to loan date')">$</span>{{row.amount}} </div>
+          <span *ngIf="(row.mark !=='N')">$</span>{{row.amount}} </div>
         </mat-cell>
       </ng-container>
 
@@ -69,10 +70,10 @@
 <!--  </div>-->
   <div class="md-form">
     <label for="form7">Comments:</label>
-    <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
+    <textarea #comment type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
   </div>
   <div class="actions">
-    <button mat-raised-button class="action-btn" *ngFor="let act of actionList" (click)="action(act)" type="submit"> {{act}}</button>
+    <button mat-raised-button class="action-btn" *ngFor="let act of actionList" (click)="action(act, comment.value)" type="submit"> {{act}}</button>
   </div>
   <br>
   <div *ngIf="submitted">
