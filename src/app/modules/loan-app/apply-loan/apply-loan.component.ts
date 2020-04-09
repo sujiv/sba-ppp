@@ -116,7 +116,7 @@ export class ApplyLoanComponent implements OnInit {
 
     // tslint:disable-next-line:max-line-length
     // this.loanApplocationFormData.addInfo = 'is is working file';
-    this.loanApplicationService.saveLoanApplicationForm(this.selectedFile, this.selectedFile, this.selectedFile, this.loanApplocationFormData)
+    this.loanApplicationService.saveLoanApplicationForm(this.selectedFile, this.selectedFile, this.selectedFile)
       .subscribe(resp => {
         console.log('========data after rest ============' + resp);
       });
@@ -158,19 +158,11 @@ export class ApplyLoanComponent implements OnInit {
     console.log(this.selectedFile.name)
 
     console.log(this.selectedFile.name);
-  }
+    }
 
 
 
 
-  onFileSelectedIII($event: Event) {
-    // console.log(event);
-    // this.selectedFile = <File>event.target.files[0];
-    // // this.grossPayrollFile =this.selectedFile.name;
-    // this.grossPayrollUpload= this.selectedFile.name;
-    // this.grossPayrollFile2= this.selectedFile;
-    // console.log(this.selectedFile.name);
-  }
 
   saveImages() {
 
