@@ -16,7 +16,6 @@ export class EligibilityComponent implements OnInit {
   constructor(private loanApplicationService: LoanApplicationService, private router:Router) { }
 
   ngOnInit(): void {
-    this.loanApplicationService.userInputsDataModel.eligibilityLine1 = false;
   }
   applyEligibility() {
 

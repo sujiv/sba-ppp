@@ -3,7 +3,7 @@ export class UserInputsDataModel {
   legalName: string;
   primaryContact: string;
   businessPhone: string;
-  TIN_EIN_SIN: string;
+  TIN: string;
   accounts: string;
   email: string;
   nonProfit: boolean = false;

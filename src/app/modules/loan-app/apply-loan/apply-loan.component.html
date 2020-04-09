@@ -70,11 +70,11 @@
                     </mat-form-field>
                 </div>
                 <div>
-                    <input type="file" accept="application/pdf,image/png,image/jpeg" hidden (change)="onFileSelectedI($event)" required name="created_at" #irs941>
+                    <input type="file" accept="application/pdf,image/png,image/jpeg" hidden (change)="onFileSelectedI($event)" required name="irs941" #irs941>
                     <button mat-raised-button (click)="irs941.click()" class="file">Upload Quarterly IRS 941</button>
-                    <input type="file" accept="application/pdf,image/png,image/jpeg" style="display: none;" (change)="onFileSelectedII($event)" required name="created_at" #healthCareCosts>
+                    <input type="file" accept="application/pdf,image/png,image/jpeg" style="display: none;" (change)="onFileSelectedII($event)" required name="healthCareCosts" #healthCareCosts>
                     <button mat-raised-button color="primary" (click)="healthCareCosts.click()" class="file">Upload Healthcare Costs</button>
-                    <input type="file" accept="application/pdf,image/png,image/jpeg" style="display: none;" (change)="onFileSelectedIII($event)" required name="created_at" #grossPayroll>
+                    <input type="file" accept="application/pdf,image/png,image/jpeg" style="display: none;" (change)="onFileSelectedIII($event)" required name="grossPayroll" #grossPayroll>
                     <button mat-raised-button color="primary" (click)="grossPayroll.click()" class="file">Upload Gross Payroll</button>
 
                 </div>
@@ -95,12 +95,8 @@
                     <mat-checkbox class="checkbox-margin" color="primary">I attest that all the information submitted above is accurate</mat-checkbox>
                 </div>
                 <div>
-                    <button mat-raised-button class="submit" type="submit">Continue</button>
-                </div>
-
-
-                <div>
-                    <button mat-raised-button class="submit" (click)="saveImages()"> Save Images</button>
+                    <button mat-raised-button class="submit" type="submit">Submit</button>
+                    <button mat-raised-button class="submit" routerLink="/certification">Continue</button>
                 </div>
             </form>
         </div>

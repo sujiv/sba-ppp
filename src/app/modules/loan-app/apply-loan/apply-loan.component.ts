@@ -13,7 +13,6 @@ import { UserInputsDataModel } from 'src/app/models/UserInputsDataModel';
 export class ApplyLoanComponent implements OnInit {
 
   // customer:Customer = new Customer();
-  selectedFile: File = null;
   irs941Upload = null;
   healthCareUpload = null;
   grossPayrollUpload = null;
@@ -22,11 +21,7 @@ export class ApplyLoanComponent implements OnInit {
   healthcareCostsFile: File = null;
   grossPayrollFile: File = null;
 
-  // ==============
-  irs941Files2: File = null;
-  healthcareCostsFile2: File = null;
-  grossPayrollFile2: File = null;
-  // ===============
+
 
   loanApplocationFormData: UserInputsDataModel;
 
@@ -47,6 +42,7 @@ export class ApplyLoanComponent implements OnInit {
   numJobs: number;
   addInfo: string;
 
+
   constructor(private loanApplicationService: LoanApplicationService, private router:Router) {
 
   }
@@ -63,7 +59,7 @@ export class ApplyLoanComponent implements OnInit {
     this.loanApplicationService.userInputsDataModel.selfEmp = this.selfEmp;
     this.loanApplicationService.userInputsDataModel.legalName = this.legalName;
     this.loanApplicationService.userInputsDataModel.tradeName = this.tradeName;
-    this.loanApplicationService.userInputsDataModel.TIN_EIN_SIN = this.TIN_EIN_SIN;
+    this.loanApplicationService.userInputsDataModel.TIN= this.TIN_EIN_SIN;
     this.loanApplicationService.userInputsDataModel.businessPhone = this.businessPhone;
     this.loanApplicationService.userInputsDataModel.primaryContact = this.primaryContact;
     this.loanApplicationService.userInputsDataModel.email = this.email;
@@ -73,102 +69,48 @@ export class ApplyLoanComponent implements OnInit {
     this.loanApplicationService.userInputsDataModel.numJobs = this.numJobs;
     this.loanApplicationService.userInputsDataModel.addInfo = this.addInfo;
 
+    this.loanApplicationService.uploadFiles.irs941Files = this.irs941Files;
+    this.loanApplicationService.uploadFiles.healthcareCostsFile = this.healthcareCostsFile;
+    this.loanApplicationService.uploadFiles.grossPayrollFile = this.grossPayrollFile;
 
 
-    // Upload the File here using Http Client
-    // const fd = new FormData();
-    // fd.append('irs941', this.selectedFile, this.selectedFile.name);
-    // Also can send binary data this.selectedFile If the API End point accept binary data
-  //  this.http.post('url', fd).subscribe(event=>{
-  //    if(event.type===HttpEventType.UploadProgress) {
-  //      console.log('Upload Progress: '+ Math.round(event.loaded/event.total*100)+'%')
-  //    }
-  //    else if (event.type===HttpEventType.Response) {
-  //      console.log(event);
-  //    }
-  //  });
-    // this.customerService.addCustomer(this.customer).subscribe();
-
-    // const  healthCost= new FormData();
-    // healthCost.append()
-    // const  gParoll= new FormData();
-      // this.loanApplicationService.saveLoanApplicationForm(this.selectedFile, this.selectedFile, this.selectedFile, this.loanApplocationFormData)
-      // .subscribe(resp => {
-      // console.log(resp); }
-      // );
-
-    // ================================
-
-    // for (var j = 0; j < this.uploader.queue.length; j++) {
-    //   let data = new FormData();
-    //   let fileItem = this.uploader.queue[j]._file;
-    //   console.log(fileItem.name);
-    //   data.append('file', fileItem);
-    //   data.append('fileSeq', 'seq'+j);
-    //   data.append( 'dataType', this.uploadForm.controls.type.value);
-    //   this.uploadFile(data).subscribe(data => alert(data.message));
-    // }
-
-    // const files = new  FormData();
-    // files.append('irs941', this.selectedFile);
-    // files.append('healthcare', this.selectedFile);
-    // files.append('gross_payroll', this.selectedFile);
-
-    // tslint:disable-next-line:max-line-length
-    // this.loanApplocationFormData.addInfo = 'is is working file';
-    this.loanApplicationService.saveLoanApplicationForm(this.selectedFile, this.selectedFile, this.selectedFile)
-      .subscribe(resp => {
-        console.log('========data after rest ============' + resp);
-      });
-      // this.loanApplicationService.saveLoanApplicationForm(this.selectedFile, this.selectedFile, this.selectedFile, this.loanApplocationFormData)
-      // .subscribe(resp => {
-      // console.log(resp); }
-      // );
-
-
-    this.router.navigate(['/certification']);
-    // this.submitted = true;
-    // this.loanApplicationService.saveLoanApplicationForm(this.irs941Files2, this.healthcareCostsFile2, this.irs941Files2)
+    // this.loanApplicationService.saveLoanApplicationForm(this.irs941Files, this.healthcareCostsFile, this.grossPayrollFile)
     //   .subscribe(resp => {
     //     console.log('========data after rest ============' + resp);
     //   });
+
+
+    //this.router.navigate(['/certification']);
   }
+
   onFileSelectedI(event) {
     console.log(event);
-    this.selectedFile = <File>event.target.files[0];
-    this.irs941Files2= this.selectedFile;
-    this.irs941Upload=this.selectedFile.name;
-    console.log(this.selectedFile.name);
+    this.irs941Files= <File>event.target.files[0];
+    this.irs941Upload=this.irs941Files.name;
+
+    if(this.irs941Upload!==null) {
+      this.loanApplicationService.userInputsDataModel.irs941Uploaded = true;
+    }
 
   }
   onFileSelectedII(event) {
+
     console.log(event);
-    this.selectedFile = <File>event.target.files[0];
-    this.healthcareCostsFile2= this.selectedFile;
-    this.healthCareUpload=this.selectedFile.name;
-    console.log(this.selectedFile.name)
+    this.healthcareCostsFile= <File>event.target.files[0];
+    this.healthCareUpload=this.healthcareCostsFile.name;
 
-    console.log(this.selectedFile.name);
-
+    if(this.healthCareUpload!==null) {
+      this.loanApplicationService.userInputsDataModel.healthcareCostsUploaded = true;
+    }
   }
   onFileSelectedIII(event) {
     console.log(event);
-    this.selectedFile = <File>event.target.files[0];
-    this.grossPayrollUpload=this.selectedFile.name;
-    console.log(this.selectedFile.name)
-
-    console.log(this.selectedFile.name);
+    this.grossPayrollFile = <File>event.target.files[0];
+    this.grossPayrollUpload = this.grossPayrollFile.name;
+    if(this.grossPayrollUpload!==null) {
+      this.loanApplicationService.userInputsDataModel.grossPayrollUploaded = true;
+    }
     }
 
 
-
-
-
-  saveImages() {
-
-    this.loanApplicationService.saveLoanApplicationForm(this.irs941Files2, this.healthcareCostsFile2, this.irs941Files2)
-      .subscribe(resp => {
-        console.log('========data after rest ============' + resp);
-      });
-  }
 }

@@ -12,13 +12,13 @@ import { UserInputsDataModel } from 'src/app/models/UserInputsDataModel';
 })
 export class CertificationsComponent implements OnInit {
 
-  certifyLine1: boolean;
-  certifyLine2: boolean;
-  certifyLine3: boolean;
-  certifyLine4: boolean;
-  certifyLine5: boolean;
-  certifyLine6: boolean;
-  certifyLine7: boolean;
+  certifyLine1: boolean = false;
+  certifyLine2: boolean = false;
+  certifyLine3: boolean = false;
+  certifyLine4: boolean = false;
+  certifyLine5: boolean = false;
+  certifyLine6: boolean = false;
+  certifyLine7: boolean = false;
 
 
 
@@ -26,6 +26,7 @@ export class CertificationsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.loanApplicationService.userInputsDataModel);
+    console.log(this.loanApplicationService.uploadFiles);
   }
   applyCertification() {
 
@@ -37,7 +38,11 @@ export class CertificationsComponent implements OnInit {
     this.loanApplicationService.userInputsDataModel.certifyLine6 = this.certifyLine6;
     this.loanApplicationService.userInputsDataModel.certifyLine7 = this.certifyLine7;
 
-    this.router.navigate(['/eligibility']);
+    this.loanApplicationService.saveFormData().subscribe(res=>{
+      console.log(res);
+    });
+
+    //this.router.navigate(['/eligibility']);
   }
 
 }
