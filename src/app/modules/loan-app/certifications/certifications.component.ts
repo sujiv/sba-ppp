@@ -26,8 +26,6 @@ export class CertificationsComponent implements OnInit {
   imageId: number;
 
 
-
-
   constructor(private loanApplicationService: LoanApplicationService, private router:Router) { }
 
   ngOnInit(): void {
@@ -55,9 +53,9 @@ export class CertificationsComponent implements OnInit {
       this.certifyLine4 && this.certifyLine5 && this.certifyLine6 && this.certifyLine7 && this.signatureAuthRep !== null &&
       this.signatureOwner !== null) {
         this.loanApplicationService.saveFormData().subscribe(res=>{
-          console.log("TTTTT"+res)
+          console.log("Form Data Response: "+res)
           this.loanApplicationService.uploadDocuments(res).subscribe(r=>{
-            console.log(r);
+            console.log("File Upload Response: "+r);
           });
         });
 
@@ -68,8 +66,6 @@ export class CertificationsComponent implements OnInit {
       this.submit = "Please fill all the forms";
     }
 
-
-    //this.router.navigate(['/eligibility']);
   }
 
 }
