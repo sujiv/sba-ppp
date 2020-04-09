@@ -64,7 +64,7 @@
     <div>
     </div>
 <!--  </mat-form-field>-->
-  <div *ngIf="comments!==null"><i>Comments: {{comments}}</i></div>
+  <div *ngIf="comments!==undefined && comments!==null && comments.length>0"><i>Comments: {{comments}}</i></div>
   <div class="md-form">
     <label for="form7">Add Comments:</label>
     <textarea #comment type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
