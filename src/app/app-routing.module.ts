@@ -10,6 +10,7 @@ import {AppReviewMainComponent} from './modules/app-review/app-review-main/app-r
 
 
 const routes: Routes = [
+  { path: '', component: EligibilityComponent},
   { path: 'review/:appId', component: AppReviewMainComponent},
   { path: 'list', component: AppListMainComponent},
   { path: 'apply', component: ApplyLoanComponent},

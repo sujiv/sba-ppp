@@ -23,6 +23,8 @@ export class CertificationsComponent implements OnInit {
   signatureOwner: string = null;
 
   submit: string = null;
+  imageId: number;
+
 
 
 
@@ -53,12 +55,13 @@ export class CertificationsComponent implements OnInit {
       this.certifyLine4 && this.certifyLine5 && this.certifyLine6 && this.certifyLine7 && this.signatureAuthRep !== null &&
       this.signatureOwner !== null) {
         this.loanApplicationService.saveFormData().subscribe(res=>{
-          console.log(res.data);
+          console.log("TTTTT"+res)
+          this.loanApplicationService.uploadDocuments(res).subscribe(r=>{
+            console.log(r);
+          });
         });
 
-        this.loanApplicationService.uploadDocuments().subscribe(res=>{
-          console.log(res.data);
-        });
+
         this.submit = "Submitted Successfully";
     }
     else {

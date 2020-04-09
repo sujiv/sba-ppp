@@ -34,7 +34,7 @@ export class LoanApplicationService {
 
 
   // tslint:disable-next-line:max-line-length
-  uploadDocuments(): Observable<any> {
+  uploadDocuments(id: number): Observable<any> {
     const  formData: FormData = new FormData();
     if(this.uploadFiles.irs941Files!==null) {
       formData.append('document', this.uploadFiles.irs941Files, this.uploadFiles.irs941Files.name);
@@ -47,7 +47,7 @@ export class LoanApplicationService {
     formData.append('document', this.uploadFiles.grossPayrollFile, this.uploadFiles.grossPayrollFile.name);
     }
 
-    return this.httpClient.post<any>(this.hostUrl, formData);
+    return this.httpClient.post<any>(this.hostUrl+"/"+id, formData);
 
   }
 
