@@ -68,16 +68,21 @@
 <!--    <label for="comment">Comments:</label><br>-->
 <!--    <textarea  id="comment" rows="5" cols="100"></textarea>-->
 <!--  </div>-->
+<!--  <div>{{comments}}</div>-->
   <div class="md-form">
-    <label for="form7">Comments:</label>
+    <label for="form7">Add Comments:</label>
     <textarea #comment type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
   </div>
   <div class="actions">
-    <button mat-raised-button class="action-btn" *ngFor="let act of actionList" (click)="action(act, comment.value)" type="submit"> {{act}}</button>
+<!--    <button mat-raised-button class="action-btn" *ngFor="let act of actionList.keys()" (click)="action(act, comment.value)" type="submit"> {{actionList.get(act)}}</button>-->
+    <button mat-raised-button class="action-btn" (click)="action('approved', comment.value)" type="submit"> Approved</button>
+    <button mat-raised-button class="action-btn" (click)="action('addInfo', comment.value)" type="submit"> Additional Information</button>
+    <button mat-raised-button class="action-btn" (click)="action('deny', comment.value)" type="submit"> Deny</button>
+    <button mat-raised-button class="action-btn" (click)="action('commented', comment.value)" type="submit"> Comment</button>
   </div>
   <br>
   <div *ngIf="submitted">
     <h4>Appliction Reviewed Successfully!</h4>
-    <a mat-raised-button color="warn" routerLink="/">Back</a>
+    <a mat-raised-button color="warn" routerLink="/list">Back</a>
   </div>
 </div>

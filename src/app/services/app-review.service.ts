@@ -42,7 +42,7 @@ export class AppReviewService {
       command: cmd,
       comment: cmt
     }
-    return this.httpClient.post<string>(`${this.host}/${id}/?command=${cmd}&comment=${cmt}`, param);
+    return this.httpClient.post<any>(`${this.host}/${id}/?command=${cmd}&comment=${cmt}`, param);
   }
 
   getAllAppDetailsOb(): Observable<PPPApplicationList[]> {

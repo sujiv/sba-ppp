@@ -15,42 +15,25 @@ export class AppReviewMainComponent implements OnInit {
   appDetails: ApplicationDetails;
   displayedColumns = ['fields', 'amount', 'source', 'autoVerified', 'comments'];
   dataSource: MatTableDataSource<RowItem>;
-  actionList: string[] = ['Approve', 'AddInfo', 'Deny', 'Comment'];
+  // actionList: string[] = ['Approve', 'AddInfo', 'Deny', 'Comment'];
+  actionList: Map<string, string>;
   submitted = false;
+  comments = '';
 
   constructor(private appReviewService: AppReviewService, private route: ActivatedRoute) {
+    this.actionList = new Map<string, string>();
+    this.actionList.set('approve', 'Approve');
+    this.actionList.set('addInfo', 'Additional Information');
+    this.actionList.set('deny', 'Deny');
+    this.actionList.set('comment', 'Comment');
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(p => {
-      /*this.appReviewService.getAppDetails(p.appId).then(detail => {
-        this.appDetails = detail;
-        console.log('From caller component:');
-        console.log(detail.FTE_Emp12MnthsPrior);
-        this.appDetails = detail;
-        this.dataSource = new MatTableDataSource<RowItem>();
-        this.dataSource.data.push(detail.FTE_Emp12MnthsPrior);
-        this.dataSource.data.push({
-          fieldName: `Total expenditures for prior 12 months:`, amount: null, source: '', autoVerified: '', comments: ''
-        });
-        this.dataSource.data.push(detail.empWages);
-        // this.dataSource.data.push(detail.lessOwnerWagesExcess100K);
-        // this.dataSource.data.push(detail.lessQualifiedSickLeaveWagesUnderFFCRA);
-        // this.dataSource.data.push(detail.lessQualifiedFamilyLeaveWagesUnderFFCRA);
-        // this.dataSource.data.push(detail.groupHealthCareBenefitsInsPremium);
-        // this.dataSource.data.push(detail.paymentRetirementBen);
-        // this.dataSource.data.push(detail.paymentEmployerPayrollTaxesStateLocal);
-        // this.dataSource.data.push(detail.contractLabor);
-        // this.dataSource.data.push(detail.lessIndividualContractLaborExcess100K);
-        // this.dataSource.data.push(detail.prior12MnthsCumQualifyingPayrollCost);
-        // this.dataSource.data.push(detail.avgMonthlyPayrollcosts);
-        // this.dataSource.data.push(detail.multiplier2dot5);
-        // this.dataSource.data.push(detail.EDIL_ObtainedFrmJan31ToBeRefinanced);
-        // this.dataSource.data.push(detail.PPP_LoadAmntLesserOfCalcOr10Mil);
-      });
-    */
       this.appReviewService.getAppDetailsOb(p.appId).subscribe(ad => {
         this.appDetails = ad;
+        this.comments = this.appDetails.applicationComments;
+        // this.commented = this.appDetails.applicationComments !== undefined && this.appDetails.applicationComments !== null && this.appDetails.applicationComments.length > 0;
         this.dataSource = new MatTableDataSource<RowItem>();
         this.appDetails.FTE_Emp12MnthsPrior.mark = 'N';
         this.dataSource.data.push(this.appDetails.FTE_Emp12MnthsPrior);
@@ -72,13 +55,17 @@ export class AppReviewMainComponent implements OnInit {
         this.dataSource.data.push(this.appDetails.EDIL_ObtainedFrmJan31ToBeRefinanced);
         this.dataSource.data.push(this.appDetails.PPP_LoadAmntLesserOfCalcOr10Mil);
         console.log(ad);
+        this.actionList.set('approve', 'Approve');
+        this.actionList.set('addInfo', 'Additional Information');
+        this.actionList.set('deny', 'Deny');
+        this.actionList.set('comment', 'Comment');
       });
     });
   }
 
   action(cmd: string, comment: string) {
     console.log(cmd + ': ' + comment);
-    this.appReviewService.reviewApplication(this.appDetails.userInputId, cmd, comment);
+    this.appReviewService.reviewApplication(this.appDetails.userInputId, cmd, comment).subscribe(res => console.log(res));
     this.submitted = true;
   }
 }
