@@ -31,6 +31,7 @@ export class UserInputsDataModel {
   certifyLine6: boolean;
   certifyLine7: boolean;
 
+
   signatureAuthRep: boolean;
   signatureOwner: boolean;
 
