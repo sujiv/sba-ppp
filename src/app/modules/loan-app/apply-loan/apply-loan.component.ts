@@ -40,7 +40,13 @@ export class ApplyLoanComponent implements OnInit {
   businessEntityType: string;
   avgMonthlyPayrollcosts: number;
   numJobs: number;
-  addInfo: string;
+  addInfo: string = null;
+
+  numJobsError: string = null;
+
+  routeToCertify: boolean = false;
+
+  attest: boolean = false;
 
 
   constructor(private loanApplicationService: LoanApplicationService, private router:Router) {
@@ -73,14 +79,25 @@ export class ApplyLoanComponent implements OnInit {
     this.loanApplicationService.uploadFiles.healthcareCostsFile = this.healthcareCostsFile;
     this.loanApplicationService.uploadFiles.grossPayrollFile = this.grossPayrollFile;
 
+    if(this.addInfo!==null) {
+      this.routeToCertify=true;
+    }
+
+
+
+
 
     // this.loanApplicationService.saveLoanApplicationForm(this.irs941Files, this.healthcareCostsFile, this.grossPayrollFile)
     //   .subscribe(resp => {
     //     console.log('========data after rest ============' + resp);
     //   });
 
-
-    //this.router.navigate(['/certification']);
+    if(this.numJobs<500 && this.routeToCertify && this.attest) {
+      this.router.navigate(['/certification']);
+    }
+    if(this.numJobs>500) {
+      this.numJobsError = "This Application is valid only for less than 500 Employees";
+    }
   }
 
   onFileSelectedI(event) {

@@ -22,6 +22,8 @@ export class CertificationsComponent implements OnInit {
   signatureAuthRep: string= null;
   signatureOwner: string = null;
 
+  submit: string = null;
+
 
 
   constructor(private loanApplicationService: LoanApplicationService, private router:Router) { }
@@ -47,13 +49,22 @@ export class CertificationsComponent implements OnInit {
       this.loanApplicationService.userInputsDataModel.signatureOwner = true;
     }
 
-    this.loanApplicationService.saveFormData().subscribe(res=>{
-      console.log(res);
-    });
+    if(this.certifyLine1 && this.certifyLine2 && this.certifyLine3 &&
+      this.certifyLine4 && this.certifyLine5 && this.certifyLine6 && this.certifyLine7 && this.signatureAuthRep !== null &&
+      this.signatureOwner !== null) {
+        this.loanApplicationService.saveFormData().subscribe(res=>{
+          console.log(res.data);
+        });
 
-    this.loanApplicationService.uploadDocuments().subscribe(res=>{
-      console.log(res);
-    });
+        this.loanApplicationService.uploadDocuments().subscribe(res=>{
+          console.log(res.data);
+        });
+        this.submit = "Submitted Successfully";
+    }
+    else {
+      this.submit = "Please fill all the forms";
+    }
+
 
     //this.router.navigate(['/eligibility']);
   }

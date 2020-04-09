@@ -36,9 +36,16 @@ export class LoanApplicationService {
   // tslint:disable-next-line:max-line-length
   uploadDocuments(): Observable<any> {
     const  formData: FormData = new FormData();
-    formData.append('document', this.uploadFiles.irs941Files, this.uploadFiles.irs941Files.name);
+    if(this.uploadFiles.irs941Files!==null) {
+      formData.append('document', this.uploadFiles.irs941Files, this.uploadFiles.irs941Files.name);
+    }
+
+    if(this.uploadFiles.healthcareCostsFile!==null) {
     formData.append('document', this.uploadFiles.healthcareCostsFile, this.uploadFiles.healthcareCostsFile.name);
+    }
+    if(this.uploadFiles.grossPayrollFile!==null) {
     formData.append('document', this.uploadFiles.grossPayrollFile, this.uploadFiles.grossPayrollFile.name);
+    }
 
     return this.httpClient.post<any>(this.hostUrl, formData);
 
